@@ -32,8 +32,8 @@ meta 'dotfiles' do
       shell "sudo curl -s https://raw.github.com/j2fly/dotfiles/master/.ssh/id_rsa.pub >> ~/.ssh/id_rsa.pub"
 
       # perms
-      shell "sudo chmod -R 700 ~/.ssh"
-      shell "sudo chmod 644 ~/.ssh/id_rsa.pub"
+      shell "sudo chmod -R 755 ~/.ssh"
+      shell "sudo chmod 600 ~/.ssh/id_rsa.pub"
       
       
       if log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
