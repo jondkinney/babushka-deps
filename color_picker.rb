@@ -1,5 +1,4 @@
 dep 'HEXColorPicker' do
-  require "FileUtils"
   met? {
     "~/Library/ColorPickers/HexColorPicker.colorPicker".p.exists?
   }
@@ -13,7 +12,6 @@ dep 'HEXColorPicker' do
   meet {
     log "Moving HexColorPicker.colorPicker into place"
     user = `whoami`.chomp
-    # FileUtils.cp_r("/Users/#{user}/Downloads/Hex Color Picker/HexColorPicker.colorPicker/", "/Users/#{user}/Library/ColorPickers/")
     "/Users/#{user}/Downloads/Hex Color Picker/HexColorPicker.colorPicker/".p.copy("/Users/#{user}/Library/ColorPickers")
 
     after {
