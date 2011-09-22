@@ -12,7 +12,7 @@ dep 'HEXColorPicker' do
 
   meet {
     log "Moving HexColorPicker.colorPicker into place"
-    FileUtils.cp_r("/Users/`whoami`/Downloads/Hex Color Picker/HexColorPicker.colorPicker/", "/Users/`whoami`/Library/ColorPickers/")
+    FileUtils.cp_r("~/Downloads/Hex Color Picker/HexColorPicker.colorPicker/", "~/Library/ColorPickers/")
     # "~/Downloads/Hex Color Picker/HexColorPicker.colorPicker/".p.copy("~/Library/ColorPickers")
 
     after {

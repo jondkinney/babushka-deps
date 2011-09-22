@@ -3,10 +3,10 @@ meta 'dotfiles' do
   accepts_value_for :target, :basename
 
   template {
-    met? { "/Users/`whoami`/.j2fly-#{target}/installed_successfully".p.file? }
+    met? { "/Users/`whoami`.chomp/.j2fly-#{target}/installed_successfully".p.exists? }
     meet {
-      if "/Users/`whoami`/.j2fly-#{target}".p.exists?
-        log_shell "Removing existing .j2fly-dotfiles", "sudo rm -r ~/.j2fly-dotfiles"
+      if "/Users/`whoami`.chomp/.j2fly-#{target}".p.exists?
+        log_shell "Backing up the existing .j2fly-dotfiles", "mv ~/.j2fly-dotfiles ~/.bkp-j2fly-dotfiles"
       end
       log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
       log "Symlinking"
