@@ -37,8 +37,8 @@ end
 # end
 
 
-# Custom Installs (each maps to a file in this repo)
 dep 'special' do
+  # Custom Installs (each maps to a file in this repo)
   requires 'coffeescript.src',
            'HEXColorPicker',
            'macvim',
@@ -49,10 +49,8 @@ dep 'special' do
            'postgres',
            'Pow',
            'rvm'
-end
 
-
-dep 'os x system level' do
+  # System Level
   requires 'Growl.installer',
            'KeyRemap4MacBook.installer',
            'MercuryMover.installer',
@@ -64,8 +62,7 @@ end
 
 dep 'osx apps installed' do
   # Social, Web, Media etc.
-  requires '',
-           'Colloquy.app',
+  requires 'Colloquy.app',
            'Color Schemer Studio.app',
            'Echofon.app',
            'Evernote.app',
@@ -80,12 +77,10 @@ dep 'osx apps installed' do
            'Sparrow.app',
            'Things.app',
            'Transmission.app',
-           'VLC.app',
-           ''
+           'VLC.app'
 
   # Development
-  requires '',
-           'CoRD.app',
+  requires 'CoRD.app',
            'GitX.app',
            'iTerm.app',
            'Reggy.app',
@@ -117,8 +112,8 @@ dep 'osx apps installed' do
            'KeyCastr.app',
            'SizeUp.app',
            'SuperDuper.app',
-           'xScope.app',
-           ''
+           'xScope.app'
+
   # Mac App Store Apps (install through the store)
            # 'Alfred.app',
            # 'Cloud.app',
