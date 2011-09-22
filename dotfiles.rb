@@ -39,7 +39,7 @@ meta 'dotfiles' do
         log "Symlinking"
         shellout = raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout
         log "#{shellout}"
-        # return true if shellout.include?("Successfully Installed")
+        return true if shellout.include?("Successfully Installed")
       else
         log_shell "Restoring ~/.bkp-j2fly-dotfiles to ~/.j2fly-dotfiles", "mv ~/.bkp-j2fly-dotfiles ~/.j2fly-dotfiles"
       end
