@@ -7,7 +7,7 @@ meta 'dotfiles' do
     meet {
       log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
       log "Symlinking"
-      raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout.empty?
+      raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout.include?("All done"")
     }
   }
 end
