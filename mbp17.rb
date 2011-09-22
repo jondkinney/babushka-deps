@@ -3,14 +3,14 @@
 dep 'mbp17' do
   requires 'dotfiles'
 
-  requires 'mbp17 brew packages'
+  requires 'brew packages'
   
-  requires 'mbp17 special'
+  requires 'special'
 
-  requires 'mbp17 osx apps installed'
+  requires 'osx apps installed'
 end
 
-dep 'mbp17 brew packages' do
+dep 'brew packages' do
   # Brew Packages
   requires '',
            'ack.managed',
@@ -27,7 +27,7 @@ dep 'mbp17 brew packages' do
 end
 
 
-dep 'mbp17 special' do
+dep 'special' do
   # Custom Installs (each maps to a file in this repo)
   requires '',
            'coffeescript.src',
@@ -53,7 +53,7 @@ dep 'mbp17 special' do
 end
 
 
-dep 'mbp17 osx apps installed' do
+dep 'osx apps installed' do
   # Social, Web, Media etc.
   requires '',
            'Colloquy.app',
