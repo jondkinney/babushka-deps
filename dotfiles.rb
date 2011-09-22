@@ -8,9 +8,10 @@ meta 'dotfiles' do
       if "/Users/`whoami`.chomp/.j2fly-#{target}".p.exists?
         log_shell "Backing up the existing .j2fly-dotfiles", "mv ~/.j2fly-dotfiles ~/.bkp-j2fly-dotfiles"
       end
-      log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
-      log "Symlinking"
-      raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout.include?("All done")
+      if log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
+        log "Symlinking"
+        raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout.include?("All done")
+      end
     }
   }
 end
