@@ -3,7 +3,14 @@
 dep 'mbp17' do
   requires 'dotfiles'
 
-  # Brew Packages
+  requires 'brew packages'
+           
+  requires 'special'
+
+  requires 'osx apps installed'
+end
+
+dep 'brew packages' do
   requires 'ack.managed',
            'git.managed',
            'growlnotify.managed',
@@ -14,27 +21,7 @@ dep 'mbp17' do
            'tmux',
            'tree.managed',
            'wget'
-           
-  requires 'special'
-
-  requires 'osx apps installed'
 end
-
-# dep 'brew packages' do
-#   # Brew Packages
-#   requires '',
-#            'ack.managed',
-#            'git.managed',
-#            'growlnotify.managed',
-#            'imagemagick.managed',
-#            'redis',
-#            'sphinx.managed',
-#            'tig.managed',
-#            'tmux',
-#            'tree.managed',
-#            'wget',
-#            ''
-# end
 
 
 dep 'special' do
