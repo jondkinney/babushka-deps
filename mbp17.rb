@@ -28,15 +28,26 @@ end
 
 
 dep 'mbp17 special' do
+  # Custom Installs (each maps to a file in this repo)
   requires '',
            'coffeescript.src',
            'HEXColorPicker',
            'macvim',
-           'mysql',
+           'mysql configured',
+           'npm'
            'nvm',
            'postgres',
            'Pow',
            'rvm',
+           ''
+  # OS X System level stuff
+  requires '',
+           'Growl.installer',
+           'KeyRemap4MacBook.installer',
+           'MercuryMover.installer',
+           'Screenshot Settings Configured',
+           'SIMBL.installer',
+           'teleport.installer',
            ''
 end
 
@@ -82,31 +93,26 @@ dep 'mbp17 osx apps installed' do
            'Flip4Mac',
            'Flux.app',
            'gfxCardStatus.app',
-           'Growl.installer',
            'iStat Menus.app',
-           'KeyRemap4MacBook.installer',
            'ScreenSharingMenulet.app',
-           'Screenshot Settings.app',
-           'SIMBL.installer',
            'SmartSleep.app',
            'Spark.app',
            'Stay.app',
-           'teleport.installer',
            'TotalFinder.app',
            ''
   # Tools
   requires '',
            '1Password.app',
            'Acorn.app',
-           'Alfred.app',
-           'Cloud.app',
            'KeyCastr.app',
-           'MercuryMover.installer',
-           'QuickCal.app',
-           'QuickURLShortener.app',
            'SizeUp.app',
-           'Skitch.app',
            'SuperDuper.app',
            'xScope.app',
            ''
+  # Mac App Store Apps (install through the store)
+           # 'Alfred.app',
+           # 'Cloud.app',
+           # 'QuickCal.app',
+           # 'QuickURLShortener.app',
+           # 'Skitch.app',
 end

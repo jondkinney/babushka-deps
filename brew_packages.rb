@@ -22,4 +22,4 @@ dep 'tmux.managed'
 
 dep 'tree.managed'
 
-dep 'wget', :template => 'managed'
+dep 'wget.managed'

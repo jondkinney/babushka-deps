@@ -6,52 +6,7 @@
 # dep 'QuickURLShortener.app'
 # dep 'Alfred.app'
 
-# other shit to do
-# ----------------
-# dep 'Screenshot Settings.app' do
-  # defaults write com.apple.screencapture location /Users/danielsgroves/Pictures
-# end
-
-
-# Pref Panes
-# ----------
-dep 'teleport.installer' do
-  source 'http://www.abyssoft.com/software/teleport/downloads/teleport.zip'
-  met? {
-    '/Library/PreferencePanes/teleport.prefPane'.p.exist?
-  }
-end
-
-dep 'MercuryMover.installer' do
-  source 'http://www.heliumfoot.com/mercurymover/downloader'
-  met? {
-    '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
-  }
-end
-
-dep 'KeyRemap4MacBook.installer' do
-  source 'http://pqrs.org/macosx/keyremap4macbook/files/KeyRemap4MacBook-7.4.0.pkg.zip'
-  met? {
-    '/Library/PreferencePanes/KeyRemap4MacBook.prefPane'.p.exist?
-  }
-end
-
-
-# Non .app Apps
-# -------------
-dep 'Growl.installer' do
-  source 'http://growl.cachefly.net/Growl-1.2.2.dmg'
-  #pkg_name 'Growl.pkg'
-  provides 'growlnotify'
-end
-
-dep 'SIMBL.installer' do
-  source 'http://www.culater.net/dl/files/SIMBL-0.9.9.zip'
-  met? { '/Library/ScriptingAdditions/SIMBL.osax'.p.exists? }
-end
-
-
-# Normal .app Apps
+# Normal Apps
 # ----------------
 dep 'SizeUp.app' do
   source 'http://irradiatedsoftware.com/download/SizeUp.zip'
@@ -76,7 +31,6 @@ end
 dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
-
 
 dep 'Flip4Mac' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.3.8.1.dmg'
