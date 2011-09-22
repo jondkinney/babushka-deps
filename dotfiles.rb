@@ -12,7 +12,7 @@ meta 'dotfiles' do
         log "Symlinking"
         shellout = raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout
         log "#{shellout}"
-        return true if shellout.include?("All done")
+        return true if shellout.include?("done...")
       end
     }
   }
