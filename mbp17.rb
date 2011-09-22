@@ -36,6 +36,7 @@ dep 'mbp17 special' do
            'mysql configured',
            'npm'
            'nvm',
+           'oh-my-zsh'
            'postgres',
            'Pow',
            'rvm',
