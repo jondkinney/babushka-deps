@@ -37,10 +37,9 @@ end
 # end
 
 
+# Custom Installs (each maps to a file in this repo)
 dep 'special' do
-  # Custom Installs (each maps to a file in this repo)
-  requires '',
-           'coffeescript.src',
+  requires 'coffeescript.src',
            'HEXColorPicker',
            'macvim',
            'mysql configured',
@@ -49,17 +48,17 @@ dep 'special' do
            'oh-my-zsh',
            'postgres',
            'Pow',
-           'rvm',
-           ''
-  # OS X System level stuff
-  requires '',
-           'Growl.installer',
+           'rvm'
+end
+
+
+dep 'os x system level' do
+  requires 'Growl.installer',
            'KeyRemap4MacBook.installer',
            'MercuryMover.installer',
            'Screenshot Settings Configured',
            'SIMBL.installer',
-           'teleport.installer',
-           ''
+           'teleport.installer'
 end
 
 
