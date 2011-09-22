@@ -18,9 +18,9 @@ dep 'brew packages' do
            'redis',
            'sphinx.managed',
            'tig.managed',
-           'tmux',
+           'tmux.managed',
            'tree.managed',
-           'wget'
+           'wget.managed'
 end
 
 
