@@ -34,7 +34,7 @@ dep 'mbp17 special' do
            'HEXColorPicker',
            'macvim',
            'mysql configured',
-           'npm'
+           'npm',
            'nvm',
            'oh-my-zsh'
            'postgres',
