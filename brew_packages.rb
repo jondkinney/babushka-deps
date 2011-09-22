@@ -23,3 +23,16 @@ dep 'tmux.managed'
 dep 'tree.managed'
 
 dep 'wget.managed'
+
+dep 'brew_packages' do
+  requires 'ack.managed',
+           'git.managed',
+           'growlnotify.managed',
+           'imagemagick.managed',
+           'redis',
+           'sphinx.managed',
+           'tig.managed',
+           'tmux.managed',
+           'tree.managed',
+           'wget.managed'
+end
