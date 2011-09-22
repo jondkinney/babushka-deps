@@ -11,7 +11,7 @@ dep 'mbp17' do
 end
 
 dep 'brew packages' do
-  requires 'Ack.managed',
+  requires 'ack.managed',
            'git.managed',
            'growlnotify.managed',
            'imagemagick.managed',
