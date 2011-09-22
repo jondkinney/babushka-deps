@@ -11,7 +11,7 @@ meta 'dotfiles' do
       if log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
         log "Symlinking"
         shellout = raw_shell("cd /Users/`whoami`/.j2fly-#{target}/tools && sh install.sh").stdout
-        log shellout.to_s
+        log "#{shellout}"
         return true if shellout.include?("All done")
       end
     }
