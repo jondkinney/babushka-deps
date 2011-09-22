@@ -3,7 +3,15 @@ meta 'dotfiles' do
   accepts_value_for :target, :basename
 
   template {
-    met? { "~/.j2fly-#{target}/installed_successfully".p.exists? }
+    met? { 
+      if "~/.j2fly-#{target}/installed_successfully".p.exists? do
+        echo "There is already a ~/.j2fly-dotfiles installation in place."
+        echo "Remove the ~/.j2fly-dotfiles/installed_successfully file and re-run to install again"
+        return true
+      else
+        return false
+      end  
+    }
     meet {
       if "~/.j2fly-#{target}".p.exists?
         if "~/.bkp-j2fly-dotfiles".p.exists?
