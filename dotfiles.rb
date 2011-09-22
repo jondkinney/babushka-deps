@@ -6,6 +6,9 @@ meta 'dotfiles' do
     met? { "~/.j2fly-#{target}/installed_successfully".p.exists? }
     meet {
       if "~/.j2fly-#{target}".p.exists?
+        if "~/.bkp-j2fly-dotfiles".p.exists?
+          log_shell "Removing backup", "sudo rm -r ~/.bkp-j2fly-dotfiles"
+        end
         log_shell "Backing up the existing ~/.j2fly-dotfiles to ~/.bkp-j2fly-dotfiles", "mv ~/.j2fly-dotfiles ~/.bkp-j2fly-dotfiles"
       end
       if log_shell "Cloning", "git clone git@github.com:j2fly/#{repo}.git /Users/`whoami`/.j2fly-#{target}"
