@@ -39,8 +39,7 @@ dep 'Screenshot Settings Configured' do
     '~/Library/Preferences/com.apple.screencapture.plist'.p.exist?
   }
   meet {
-    log ''
-    defaults write com.apple.screencapture location /Users/`whoami`/Pictures/ScreenShots
+    log_shell("Setting up screenshot preferences", "defaults write com.apple.screencapture location /Users/`whoami`/Pictures/ScreenShots")
   }
 end
 
