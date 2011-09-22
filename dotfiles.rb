@@ -7,9 +7,9 @@ meta 'dotfiles' do
       if "~/.j2fly-#{target}/installed_successfully".p.exists?
         log "There is already a ~/.j2fly-dotfiles installation in place."
         log "Remove the ~/.j2fly-dotfiles/installed_successfully file and re-run to install again"
-        return true
+        true
       else
-        return false
+        false
       end  
     }
     meet {
