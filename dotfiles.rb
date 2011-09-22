@@ -4,7 +4,7 @@ meta 'dotfiles' do
 
   template {
     met? { 
-      if "~/.j2fly-#{target}/installed_successfully".p.exists? do
+      if "~/.j2fly-#{target}/installed_successfully".p.exists?
         echo "There is already a ~/.j2fly-dotfiles installation in place."
         echo "Remove the ~/.j2fly-dotfiles/installed_successfully file and re-run to install again"
         return true
