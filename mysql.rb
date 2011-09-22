@@ -2,10 +2,9 @@ dep 'mysql', :template => 'managed'
 
 dep 'mysql configured' do
   requires 'mysql'
-  helper(:my_cnf) { '/etc/my.cnf' }
-  met? { my_cnf.p.exists?  }
+  met? { "/etc/my.cnf".p.exists?  }
   meet {
-    render_erb 'mysql/my.cnf', :to => my_cnf, :sudo => true
+    render_erb 'mysql/my.cnf', :to => "/etc/my.cnf", :sudo => true
     shell 'mysql_install_db'
   }
 end
