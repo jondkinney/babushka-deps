@@ -3,7 +3,6 @@ meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
   accepts_value_for :dmg_name
-  # accepts_value_for :dmg_mount_as
 
   template {
     met? {
@@ -14,12 +13,6 @@ meta 'eula_app' do
       log "Using Babushka's Resource.get to snatch #{app_name}"
       Babushka::Resource.get("#{source}") do
       end
-      # log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/app -format UDTO -o ~/.babushka/downloads/app")
-      # log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
-      # log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/#{app_name} /Applications")
-      # log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/app -format UDTO -o ~/.babushka/downloads/app")
-      # log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
-      # log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/#{app_name} /Applications")
       log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/app")
       log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
       log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/*.app /Applications")
@@ -33,16 +26,14 @@ meta 'eula_app' do
   }
 end
 
-dep 'OmniGraffle Professional.app', :template => 'eula_app' do
+dep 'OmniGraffle Professional 5.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
   dmg_name 'OmniGrafflePro-5.3.3.dmg'
-  # dmg_mount_as 'OmniGrafflePro'
 end
 
 dep 'Evernote.app', :template => 'eula_app' do
   source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
   dmg_name 'Evernote_172019.dmg'
-  # dmg_mount_as 'Evernote'
 end
 
 
