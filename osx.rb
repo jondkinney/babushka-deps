@@ -33,7 +33,7 @@ end
 
 # OS X Preferences
 # ----------------
-dep 'Screenshot Settings Configured' do
+dep 'screenshot settings configured' do
   requires 'Screenshot Folder Location Exists'
   met? {
     '~/Library/Preferences/com.apple.screencapture.plist'.p.exist?

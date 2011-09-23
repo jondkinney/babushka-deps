@@ -28,7 +28,7 @@ dep 'special' do
 #  'coffeescript.src',
   requires 'HEXColorPicker',
            'macvim',
-           'mysql configured',
+           # 'mysql configured',
            'npm',
            'nvm',
            'oh-my-zsh',
@@ -40,7 +40,7 @@ dep 'special' do
   requires 'Growl.installer',
            'KeyRemap4MacBook.installer',
            'MercuryMover.installer',
-           'Screenshot Settings Configured',
+           'screenshot settings configured',
            'SIMBL.installer',
            'teleport.installer'
 end
