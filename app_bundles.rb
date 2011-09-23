@@ -20,9 +20,9 @@ meta 'eula_app' do
       # log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/app -format UDTO -o ~/.babushka/downloads/app")
       # log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
       # log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/#{app_name} /Applications")
-      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/#{dmg_name} -format UDTO -o ~/Downloads/app")
-      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
-      log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{app_name} /Applications")
+      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/app")
+      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
+      log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/#{app_name} /Applications")
 
       after {
         log "Detaching DMG and deleting the .cdr we created"
