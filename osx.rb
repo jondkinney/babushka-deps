@@ -78,8 +78,21 @@ dep 'Screenshot Folder Location Exists' do
 end
 
 
-# Non-standard
-# -------------
+
+# dep 'os x configured' do
+#   met? {
+#     '~/Library/Preferences/com.apple.finder.plist'.p.exist?
+#   }
+#   meet {
+#     log_shell("Setting up finder preferences", "defaults write com.apple")
+#   }
+# end
+
+
+
+
+# Non-Standard Apps
+# -----------------
 dep 'SIMBL.installer' do
   source 'http://www.culater.net/dl/files/SIMBL-0.9.9.zip'
   met? { '/Library/ScriptingAdditions/SIMBL.osax'.p.exists? }

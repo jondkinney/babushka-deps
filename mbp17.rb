@@ -9,6 +9,8 @@ dep 'mbp17' do
   requires 'special'
 
   requires 'osx apps installed'
+  
+  # requires 'configure os x'
 end
 
 dep 'brew packages' do
