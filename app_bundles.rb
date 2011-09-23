@@ -146,7 +146,7 @@ dep 'KeyCastr.app' do
   source 'http://stephendeken.net/software/keycastr/releases/keycastr_0.8.0.dmg'
 end
 
-dep 'Evernote.app' do, :template => 'eula_app'
+dep 'Evernote.app', :template => 'eula_app' do
   source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
 end
 
