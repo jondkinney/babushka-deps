@@ -26,7 +26,7 @@ dep 'MercuryMover.installer' do
     log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/mercury_mover")
     log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/mercury_mover ~/Downloads/mercury_mover.cdr")
     log_shell("Copying into /Library/PreferencePanes","sudo cp -r ~/Downloads/mercury_mover/MercuryMover.prefPane /Library/PreferencePanes")
-    
+
     after {
       log "Detaching DMG and cleaning up (deleting downloaded files)"
       shell("/usr/bin/hdiutil detach ~/Downloads/mercury_mover/")
@@ -36,13 +36,24 @@ dep 'MercuryMover.installer' do
   }
 end
 
+# Not sure why I had to custom do this one...but it didn't work when I tried it.
 dep 'teleport.installer' do
-  source 'http://www.abyssoft.com/software/teleport/downloads/teleport.zip'
+  # source 'http://www.abyssoft.com/software/teleport/downloads/teleport.zip'
   met? {
-    '/Library/PreferencePanes/teleport.prefPane'.p.exist?
+    "/Library/PreferencePanes/teleport.prefPane".p.exist?
+  }
+  meet {
+    log_shell("Downloading teleport", "curl 'http://www.abyssoft.com/software/teleport/downloads/teleport.zip' -o ~/Downloads/teleport.zip")
+    log_shell("Unzipping","unzip -o ~/Downloads/teleport.zip -d ~/Downloads")
+    log_shell("Copying into /Library/PreferencePanes","sudo cp -r ~/Downloads/teleport/teleport.prefPane /Library/PreferencePanes")
+
+    after {
+      log "Cleaning up (deleting downloaded files)"
+      "~/Downloads/teleport.zip".p.remove
+      "~/Downloads/teleport".p.remove
+    }
   }
 end
-
 
 # OS X Preferences
 # ----------------
