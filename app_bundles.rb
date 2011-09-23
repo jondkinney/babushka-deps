@@ -2,7 +2,7 @@
 meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
-  accepts_value_for :dmg_name, :dmg_name
+  accepts_value_for :dmg_name, :dmgname
 
   template {
     met? {
@@ -10,7 +10,7 @@ meta 'eula_app' do
     }
     meet {
       raise dmg_name.inspect
-      dmg_name = "#{dmg_name}"
+      dmgname = "#{dmg_name}"
       # dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
   
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
@@ -31,7 +31,7 @@ meta 'eula_app' do
 end
 
 dep 'OmniGraffle.app', :template => 'eula_app' do
-  dmg_name = 'OmniGrafflePro-5.3.3.dmg'
+  dmgname 'OmniGrafflePro-5.3.3.dmg'
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
 end
 
