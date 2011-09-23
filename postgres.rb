@@ -15,13 +15,10 @@ end
 
 dep 'postgres configured' do
   requires 'postgres.managed'
-  def pg_db
-    '/usr/local/var/postgres'
-  end
-  met? { pg_db.p.exists? }
+  met? { "/usr/local/var/postgres".p.exists? }
   meet {
     log "This is your first install, creating the postgres database at /usr/local/var/postgres"
-    shell "initdb #{pg_db}"
+    shell "initdb /usr/local/var/postgres"
   }
 end
 
