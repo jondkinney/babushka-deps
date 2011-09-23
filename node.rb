@@ -1,5 +1,5 @@
 dep 'nvm' do
-  requires 'wget'
+  requires 'wget.managed'
   met? { "#{ENV['HOME']}/.nvm".p.exist? }
   meet { shell 'git clone git://github.com/creationix/nvm.git ~/.nvm' }
 end
