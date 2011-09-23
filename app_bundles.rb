@@ -34,7 +34,7 @@ dep 'Evernote.app', :template => 'eula_app' do
   dmg_name 'Evernote_172019.dmg'
 end
 
-dep 'SuperDuper.app!', :template => 'eula_app' do
+dep 'SuperDuper!.app', :template => 'eula_app' do
   source 'http://www.shirt-pocket.com/downloads/SuperDuper%21.dmg'
   dmg_name 'SuperDuper!.dmg'
 end
