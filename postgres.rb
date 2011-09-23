@@ -11,12 +11,12 @@
 #   provides "psql ~> #{version}.0"
 # end
 # 
-dep 'postgres.managed' do
+dep 'postgresql.managed' do
   provides "psql"
 end
 
 dep 'postgres configured' do
-  requires 'postgres.managed'
+  requires 'postgresql.managed'
   met? { "/usr/local/var/postgres".p.exists? }
   meet {
     log "This is your first install, creating the postgres database at /usr/local/var/postgres"
