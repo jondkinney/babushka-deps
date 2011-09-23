@@ -9,14 +9,11 @@ meta 'eula_app' do
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/app.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
-      Babushka::Resource.get("#{source}") do
-      end
-      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/app")
-      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
-      log "Copying into /Applications"
-      shell %Q{sudo cp -r ~/.babushka/downloads/app/*.app /Applications}, :progress => /[\d\.]+%/
+      Babushka::Resource.get("#{source}") do end
+      log_shell "Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/app"
+      log_shell "Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr"
+      log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/*.app /Applications", :spinner => true
 
       after {
         log "Detaching DMG and deleting the .cdr we created"
