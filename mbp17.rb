@@ -33,7 +33,7 @@ dep 'special' do
            'npm',
            'nvm',
            'oh-my-zsh and janus',
-           'postgres',
+           'postgres configured',
            'Pow',
            'rvm'
 

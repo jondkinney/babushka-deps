@@ -1,7 +1,7 @@
 dep 'postgres', :template => 'managed'
 
-dep 'postgresql configured' do
-  requires 'postgresql'
+dep 'postgres configured' do
+  requires 'postgres'
   helper(:pg_db) { '/usr/local/var/postgres' }
   met? { pg_db.p.exists?  }
   meet {
