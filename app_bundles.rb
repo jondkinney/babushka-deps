@@ -12,8 +12,7 @@ meta 'eula_app' do
     meet {
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/app.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
-      Babushka::Resource.get("#{source}") do
-        filename 'app.dmg'
+      Babushka::Resource.get("#{source}", :filename => 'app.dmg') do
       end
       # log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/app -format UDTO -o ~/.babushka/downloads/app")
       # log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr")
