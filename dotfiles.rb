@@ -6,7 +6,7 @@ meta 'dotfiles' do
     met? { 
       if "~/.#{target}/successful_install".p.exists?
         log "There is already a ~/.#{target} installation in place."
-        log "Remove the ~/.#{target}/installed_successfully file and re-run to install again"
+        log "Remove the ~/.#{target}/successful_install file and re-run to install again"
         true
       else
         false
