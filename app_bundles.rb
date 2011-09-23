@@ -2,7 +2,7 @@ meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
   
-  dmg_name = app_name.downcase.gsub!(/.app/, '')
+  dmg_name = "#{app_name}".downcase.gsub!(/.app/, '')
 
   template {
     met? {
