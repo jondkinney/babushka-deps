@@ -9,7 +9,7 @@ meta 'eula_app' do
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      dmg_name = dmg_name.to_s
+      raise dmg_name.inspect
       dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
   
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
