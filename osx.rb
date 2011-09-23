@@ -22,16 +22,13 @@ dep 'MercuryMover.installer' do
     '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
   }
   meet {
-    before {
-      log_shell("Downloading MercuryMover", "curl 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg' -o ~/Downloads/MercuryMover.dmg")
-    }
-    
-    shell("/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/mercury_mover")
-    shell("/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/mercury_mover ~/Downloads/mercury_mover.cdr")
-    shell("cp -r ~/Downloads/mercury_mover/MercuryMover.prefPane ~/Library/PreferencePanes")
+    log_shell("Downloading MercuryMover", "curl 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg' -o ~/Downloads/MercuryMover.dmg")
+    log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/mercury_mover")
+    log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/mercury_mover ~/Downloads/mercury_mover.cdr")
+    log_shell("Copying into /Library/PreferencePanes","cp -r ~/Downloads/mercury_mover/MercuryMover.prefPane ~/Library/PreferencePanes")
     
     after {
-      log "Detaching and cleaning up"
+      log "Detaching DMG and cleaning up (deleting downloaded files)"
       shell("/usr/bin/hdiutil detach ~/Downloads/mercury_mover/")
       "~/Downloads/MercuryMover.dmg".p.remove
       "~/Downloads/mercury_mover.cdr".p.remove
