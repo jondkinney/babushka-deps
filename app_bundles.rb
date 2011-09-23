@@ -9,6 +9,7 @@ meta 'eula_app' do
       "/Applications/#{app_name}".p.exist?
     }
     meet {
+      raise source.inspect
       dmg_name = "#{dmg_name}"
       # dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
   
