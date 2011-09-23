@@ -2,7 +2,7 @@
 meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
-  accepts_value_for :dmg_name, :dmgname
+  accepts_list_for :dmg_name
 
   template {
     met? {
@@ -30,8 +30,9 @@ meta 'eula_app' do
   }
 end
 
-dep 'OmniGraffle.app', :dmgname => 'OmniGrafflePro-5.3.3.dmg', :template => 'eula_app' do
+dep 'OmniGraffle.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
+  dmg_name 'OmniGrafflePro-5.3.3.dmg'
 end
 
 
