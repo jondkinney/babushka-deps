@@ -1,22 +1,23 @@
 meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
+  
+  dmg_name = app_name.downcase.gsub!(/.app/, '')
 
   template {
     met? {
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/Downloads/app.dmg")
-      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/app.dmg -format UDTO -o ~/Downloads/app")
-      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
-      log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{app_name} /Applications")
+      log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
+      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name}.dmg -format UDTO -o ~/.babushka/downloads/#{dmg_name}")
+      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name} ~/.babushka/downloads/#{dmg_name}.cdr")
+      log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
 
       after {
         log "Detaching DMG and cleaning up (deleting downloaded files)"
-        shell("/usr/bin/hdiutil detach ~/Downloads/app/")
-        "~/Downloads/app.dmg".p.remove
-        "~/Downloads/app.cdr".p.remove
+        shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmg_name}/")
+        "~/.babushka/downloads/#{dmg_name}.cdr".p.remove
       }
     }
   }
