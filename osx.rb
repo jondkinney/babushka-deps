@@ -17,7 +17,7 @@ dep 'KeyRemap4MacBook.installer' do
 end
 
 dep 'MercuryMover.installer' do
-  source 'http://www.heliumfoot.com/mercurymover/downloader'
+  source 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg'
   met? {
     '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
   }
