@@ -64,7 +64,7 @@ dep 'Colloquy.app' do
   source 'http://colloquy.info/downloads/colloquy-latest.zip'
 end
 
-dep 'Color Schemer Studio.app' do
+dep 'ColorSchemer Studio 2.app' do
   source 'http://www.colorschemer.com/colorschemerstudio.dmg'
 end
 
