@@ -15,7 +15,7 @@ meta 'eula_app' do
       log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
 
       after {
-        log "Detaching DMG and cleaning up (deleting downloaded files)"
+        log "Detaching DMG and deleting the .cdr we created"
         shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmg_name}/")
         "~/.babushka/downloads/#{dmg_name}.cdr".p.remove
       }
