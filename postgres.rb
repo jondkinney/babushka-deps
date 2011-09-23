@@ -11,7 +11,9 @@
 #   provides "psql ~> #{version}.0"
 # end
 # 
-dep 'postgres.managed'
+dep 'postgres.managed' do
+  provides "psql"
+end
 
 dep 'postgres configured' do
   requires 'postgres.managed'
