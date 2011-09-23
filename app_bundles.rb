@@ -1,30 +1,32 @@
-    meta 'eula_app' do
-      accepts_value_for :app_name, :basename
-      accepts_value_for :source, :source
-      accepts_value_for :dmg_name, :dmg_name
+# http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg
+meta 'eula_app' do
+  accepts_value_for :app_name, :basename
+  accepts_value_for :source, :source
+  accepts_value_for :dmg_name, :dmg_name
 
-      template {
-        met? {
-          "/Applications/#{app_name}".p.exist?
-        }
-        meet {
-          dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
-      
-          # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
-          log "Using Babushka's Resource.download to snatch #{app_name}"
-          Babushka::Resource.download("#{source}")
-          log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name}.dmg -format UDTO -o ~/.babushka/downloads/#{dmg_name}")
-          log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name} ~/.babushka/downloads/#{dmg_name}.cdr")
-          log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
+  template {
+    met? {
+      "/Applications/#{app_name}".p.exist?
+    }
+    meet {
+      dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
+  
+      # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
+      log "Using Babushka's Resource.get to snatch #{app_name}"
+      Babushka::Resource.get("#{source}") do
+      end
+      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name}.dmg -format UDTO -o ~/.babushka/downloads/#{dmg_name}")
+      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name} ~/.babushka/downloads/#{dmg_name}.cdr")
+      log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
 
-          after {
-            log "Detaching DMG and deleting the .cdr we created"
-            shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmg_name}/")
-            "~/.babushka/downloads/#{dmg_name}.cdr".p.remove
-          }
-        }
+      after {
+        log "Detaching DMG and deleting the .cdr we created"
+        shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmg_name}/")
+        "~/.babushka/downloads/#{dmg_name}.cdr".p.remove
       }
-    end
+    }
+  }
+end
 
 
 # Mac App Store Apps
