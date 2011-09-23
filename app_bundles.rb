@@ -13,7 +13,7 @@ meta 'eula_app' do
         dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
       end
   
-      raise dmg_name.inspect
+      raise "#{dmg_name}".inspect
       
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
