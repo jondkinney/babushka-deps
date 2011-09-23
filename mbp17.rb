@@ -94,7 +94,7 @@ dep 'osx apps installed' do
            'Acorn.app',
            'KeyCastr.app',
            'SizeUp.app',
-           'SuperDuper.app',
+           'SuperDuper!.app',
            'xScope.app'
 
   # Mac App Store Apps (install through the store)
