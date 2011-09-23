@@ -1,7 +1,8 @@
 # Complete setup for my Macbook Pro, 'mbp17'
 
 dep 'mbp17' do
-  requires 'dotfiles'
+  requires 'dotfiles', 
+           'private-dotfiles'
 
   requires 'brew packages'
            
@@ -73,12 +74,10 @@ dep 'osx apps installed' do
            'Sequel Pro.app',
            'Snippets.app',
            'TextMate.app',
-           'VirtualBox.installer',
-           ''
+           'VirtualBox.installer'
 
   # System utilities
-  requires '',
-           'Airfoil.app',
+  requires 'Airfoil.app',
            'Carbon Copy Cloner.app',
            'Dropbox.app',
            'Flip4Mac',
@@ -89,11 +88,9 @@ dep 'osx apps installed' do
            'SmartSleep.app',
            'Spark.app',
            'Stay.app',
-           'TotalFinder.app',
-           ''
+           'TotalFinder.app'
   # Tools
-  requires '',
-           '1Password.app',
+  requires '1Password.app',
            'Acorn.app',
            'KeyCastr.app',
            'SizeUp.app',
@@ -105,5 +102,5 @@ dep 'osx apps installed' do
            # 'Cloud.app',
            # 'QuickCal.app',
            # 'QuickURLShortener.app',
-           # 'Skitch.app',
+           # 'Skitch.app'
 end
