@@ -2,7 +2,7 @@
 meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
-  accepts_list_for :dmg_name
+  accepts_value_for :dmg_name
 
   template {
     met? {
