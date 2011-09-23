@@ -31,11 +31,11 @@ dep 'special' do
 #  'coffeescript.src',
   requires 'HEXColorPicker',
            'macvim',
-           'mysql configured',
+           'mysql.managed',
            'npm',
            'nvm',
            'oh-my-zsh and janus',
-           'postgres configured',
+           'postgres.managed',
            'Pow',
            'rvm'
 
