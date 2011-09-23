@@ -31,7 +31,7 @@ dep 'special' do
            # 'mysql configured',
            'npm',
            'nvm',
-           'oh-my-zsh',
+           'oh-my-zsh and janus',
            'postgres',
            'Pow',
            'rvm'
