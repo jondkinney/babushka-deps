@@ -175,7 +175,7 @@ dep 'gfxCardStatus.app' do
 end
 
 dep 'Sparrow.app' do
-  source 'http://download.sparrowmailapp.com/release/Sparrow-latest.dmg'
+  source 'http://download.sparrowmailapp.com/appcast/Sparrow-latest.dmg'
 end
 
 dep 'SuperDuper.app' do
