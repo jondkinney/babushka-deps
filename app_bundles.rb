@@ -9,10 +9,9 @@ meta 'eula_app' do
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      # dmg_name = 
-      raise "#{dmg_name}".gsub!(/.dmg/, '').inspect
       dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
   
+      raise dmg_name.inspect
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
       Babushka::Resource.get("#{source}") do
@@ -32,7 +31,7 @@ end
 
 dep 'OmniGraffle.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
-  dmg_name 'OmniGrafflePro-5.3.3.dmg'
+  dmg_name 'OmniGrafflePro-5.3.3'
 end
 
 
