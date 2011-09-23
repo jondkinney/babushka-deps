@@ -1,5 +1,5 @@
 # http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg
-meta 'eula_app' do
+meta 'skip_eula_prompt' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
   accepts_value_for :dmg_name
@@ -24,17 +24,17 @@ meta 'eula_app' do
   }
 end
 
-dep 'OmniGraffle Professional 5.app', :template => 'eula_app' do
+dep 'OmniGraffle Professional 5.app', :template => 'skip_eula_prompt' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
   dmg_name 'OmniGrafflePro-5.3.3.dmg'
 end
 
-dep 'Evernote.app', :template => 'eula_app' do
+dep 'Evernote.app', :template => 'skip_eula_prompt' do
   source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
   dmg_name 'Evernote_172019.dmg'
 end
 
-dep 'SuperDuper!.app', :template => 'eula_app' do
+dep 'SuperDuper!.app', :template => 'skip_eula_prompt' do
   source 'http://www.shirt-pocket.com/downloads/SuperDuper%21.dmg'
   dmg_name 'SuperDuper!.dmg'
 end
