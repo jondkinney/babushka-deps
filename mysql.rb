@@ -5,7 +5,7 @@ dep 'mysql configured' do
   def my_cnf
     '/etc/my.cnf'
   end
-  met? { my_cnf.p.exists?  }
+  met? { "/etc/my.cnf".p.exists?  }
   meet {
     render_erb 'mysql/my.cnf', :to => my_cnf, :sudo => true
     shell 'sudo mysql_install_db'
