@@ -1,3 +1,28 @@
+meta 'eula_app' do
+  accepts_value_for :app_name, :basename
+  accepts_value_for :source, :source
+
+  template {
+    met? {
+      "/Applications/#{app_name}".p.exist?
+    }
+    meet {
+      log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/Downloads/app.dmg")
+      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/app.dmg -format UDTO -o ~/Downloads/app")
+      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
+      log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{appname} /Applications")
+
+      after {
+        log "Detaching DMG and cleaning up (deleting downloaded files)"
+        shell("/usr/bin/hdiutil detach ~/Downloads/app/")
+        "~/Downloads/app.dmg".p.remove
+        "~/Downloads/app.cdr".p.remove
+      }
+    }
+  }
+end
+
+
 # Mac App Store Apps
 # ------------------
 # dep 'Cloud.app'
@@ -121,26 +146,8 @@ dep 'KeyCastr.app' do
   source 'http://stephendeken.net/software/keycastr/releases/keycastr_0.8.0.dmg'
 end
 
-dep 'Evernote.app' do
-  # source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'
-  accepts_value_for :appname, :basename
-  
-  met? {
-    "/Applications/Evernote.app".p.exist?
-  }
-  meet {
-    log_shell("Downloading App", "curl 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg' -o ~/Downloads/app.dmg")
-    log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/app.dmg -format UDTO -o ~/Downloads/app")
-    log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
-    log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{appname} /Applications")
-
-    after {
-      log "Detaching DMG and cleaning up (deleting downloaded files)"
-      shell("/usr/bin/hdiutil detach ~/Downloads/app/")
-      "~/Downloads/app.dmg".p.remove
-      "~/Downloads/app.cdr".p.remove
-    }
-  }
+dep 'Evernote.app' do, :template => 'eula_app'
+  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
 end
 
 dep 'Plex.app' do
