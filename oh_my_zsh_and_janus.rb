@@ -1,6 +1,6 @@
 dep 'oh-my-zsh and janus' do
   met? {
-    "~/.oh-my-zsh/custom/j2fly_shortcuts.zsh".p.exists?
+    "~/.oh-my-zsh/custom/j2fly_shortcuts.zsh".p.exists? && "~/.vim/colors/j2fly.vim".p.exists?
   }
 
   meet {
