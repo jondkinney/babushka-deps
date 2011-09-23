@@ -80,7 +80,7 @@ dep 'osx apps installed' do
   requires 'Airfoil.app',
            'Carbon Copy Cloner.app',
            'Dropbox.app',
-           'Flip4Mac',
+           # 'Flip4Mac',
            'Flux.app',
            'gfxCardStatus.app',
            'iStat Menus.app',
