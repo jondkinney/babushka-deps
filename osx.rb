@@ -51,6 +51,7 @@ dep 'teleport.installer' do
       log "Cleaning up (deleting downloaded files)"
       "~/Downloads/teleport.zip".p.remove
       "~/Downloads/teleport".p.remove
+      "~/Downloads/__MACOSX".p.remove
     }
   }
 end
