@@ -9,9 +9,8 @@ meta 'eula_app' do
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      raise dmg_name.inspect
-      dmgname = "#{dmg_name}"
-      # dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
+      dmg_name = "#{dmg_name}"
+      dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
   
       # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
