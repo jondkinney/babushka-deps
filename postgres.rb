@@ -1,17 +1,17 @@
-dep 'postgres.managed', :version do
-  version.default('9.1')
-  requires {
-    on :apt, 'set.locale', 'postgres.ppa'
-    on :brew, 'set.locale'
-  }
-  installs {
-    via :apt, ["postgresql-#{owner.version}", "libpq-dev"]
-    via :brew, "postgresql"
-  }
-  provides "psql ~> #{version}.0"
-end
-
-# dep 'postgres', :template => 'managed'
+# dep 'postgres.managed', :version do
+#   version.default('9.1')
+#   requires {
+#     on :apt, 'set.locale', 'postgres.ppa'
+#     on :brew, 'set.locale'
+#   }
+#   installs {
+#     via :apt, ["postgresql-#{owner.version}", "libpq-dev"]
+#     via :brew, "postgresql"
+#   }
+#   provides "psql ~> #{version}.0"
+# end
+# 
+dep 'postgres', :template => 'managed'
 
 dep 'postgres configured' do
   requires 'postgres.managed'
