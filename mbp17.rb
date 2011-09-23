@@ -31,7 +31,7 @@ dep 'special' do
 #  'coffeescript.src',
   requires 'HEXColorPicker',
            'macvim',
-           'mysql.managed',
+           'mysql configured',
            'npm',
            'nvm',
            'oh-my-zsh and janus',
