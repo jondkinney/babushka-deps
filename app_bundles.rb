@@ -10,7 +10,7 @@ meta 'eula_app' do
       log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/Downloads/app.dmg")
       log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/app.dmg -format UDTO -o ~/Downloads/app")
       log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
-      log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{appname} /Applications")
+      log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{app_name} /Applications")
 
       after {
         log "Detaching DMG and cleaning up (deleting downloaded files)"
