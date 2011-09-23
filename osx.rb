@@ -22,14 +22,19 @@ dep 'MercuryMover.installer' do
     '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
   }
   meet {
-    shell("/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/bar")
-    shell("/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/right_here ~/Downloads/bar.cdr")
-    shell("cp -r ~/Downloads/right_here/MercuryMover.prefPane ~/Library/PreferencePanes")
-    shell("/usr/bin/hdiutil detach ~/Downloads/right_here/")
+    before {
+      log_shell("Downloading MercuryMover", "curl 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg' -o ~/Downloads/MercuryMover.dmg")
+    }
+    
+    shell("/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/mercury_mover")
+    shell("/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/mercury_mover ~/Downloads/mercury_mover.cdr")
+    shell("cp -r ~/Downloads/mercury_mover/MercuryMover.prefPane ~/Library/PreferencePanes")
+    
     after {
-      log "Cleaning up"
+      log "Detaching and cleaning up"
+      shell("/usr/bin/hdiutil detach ~/Downloads/mercury_mover/")
       "~/Downloads/MercuryMover.dmg".p.remove
-      "~/Downloads/bar.cdr".p.remove
+      "~/Downloads/mercury_mover.cdr".p.remove
     }
   }
 end
