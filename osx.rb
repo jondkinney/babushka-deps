@@ -79,7 +79,15 @@ end
 
 
 
-# dep 'os x configured' do
+dep 'os x prefs' do
+  requires 'save dialog expanded'
+end
+
+dep 'save dialog expanded' do
+  shell "defaults write -g NSNavPanelExpandedStateForSaveMode -bool YES"
+end
+
+# dep 'finder view preferences' do
 #   met? {
 #     '~/Library/Preferences/com.apple.finder.plist'.p.exist?
 #   }
@@ -87,8 +95,6 @@ end
 #     log_shell("Setting up finder preferences", "defaults write com.apple")
 #   }
 # end
-
-
 
 
 # Non-Standard Apps

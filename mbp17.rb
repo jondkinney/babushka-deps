@@ -10,7 +10,7 @@ dep 'mbp17' do
 
   requires 'osx apps installed'
   
-  # requires 'configure os x'
+  requires 'os x prefs'
 end
 
 dep 'brew packages' do
