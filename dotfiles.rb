@@ -4,7 +4,7 @@ meta 'dotfiles' do
 
   template {
     met? { 
-      if "~/.#{target}/installed_successfully".p.exists?
+      if "~/.#{target}/successful_install".p.exists?
         log "There is already a ~/.#{target} installation in place."
         log "Remove the ~/.#{target}/installed_successfully file and re-run to install again"
         true
