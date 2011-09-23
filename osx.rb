@@ -16,23 +16,23 @@ dep 'KeyRemap4MacBook.installer' do
   }
 end
 
-    dep 'MercuryMover.installer' do
-      # source 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg'
-      met? {
-        '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
-      }
-      meet {
-        shell("/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/bar")
-        shell("/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/right_here ~/Downloads/bar.cdr")
-        shell(" ~/Downloads/right_here/MercuryMover.prefPane ~/Library/PreferencePanes")
-        shell("/usr/bin/hdiutil detach ~/Downloads/right_here/")
-        after {
-          log "Cleaning up"
-          "~/Downloads/MercuryMover.dmg".p.remove
-          "~/Downloads/bar.cdr".p.remove
-        }
-      }
-    end
+dep 'MercuryMover.installer' do
+  # source 'http://www.heliumfoot.com/files/release/mercurymover/MercuryMover.dmg'
+  met? {
+    '/Library/PreferencePanes/MercuryMover.prefPane'.p.exist?
+  }
+  meet {
+    shell("/usr/bin/hdiutil convert -quiet ~/Downloads/MercuryMover.dmg -format UDTO -o ~/Downloads/bar")
+    shell("/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/right_here ~/Downloads/bar.cdr")
+    shell("cp -r ~/Downloads/right_here/MercuryMover.prefPane ~/Library/PreferencePanes")
+    shell("/usr/bin/hdiutil detach ~/Downloads/right_here/")
+    after {
+      log "Cleaning up"
+      "~/Downloads/MercuryMover.dmg".p.remove
+      "~/Downloads/bar.cdr".p.remove
+    }
+  }
+end
 
 dep 'teleport.installer' do
   source 'http://www.abyssoft.com/software/teleport/downloads/teleport.zip'
