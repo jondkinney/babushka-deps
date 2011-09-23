@@ -2,29 +2,25 @@
 meta 'eula_app' do
   accepts_value_for :app_name, :basename
   accepts_value_for :source, :source
-  accepts_value_for :dmgname
+  accepts_value_for :dmg_name
 
   template {
     met? {
       "/Applications/#{app_name}".p.exist?
     }
     meet {
-      # dmgname ||= "#{app_name}".downcase.gsub!(/.app/, '')
-  
-      raise "#{dmgname}".to_s
-      
-      # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmgname}.dmg")
+      # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
       log "Using Babushka's Resource.get to snatch #{app_name}"
       Babushka::Resource.get("#{source}") do
       end
-      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmgname}.dmg -format UDTO -o ~/.babushka/downloads/#{dmgname}")
-      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmgname} ~/.babushka/downloads/#{dmgname}.cdr")
-      log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmgname}/#{app_name} /Applications")
+      log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name}.dmg -format UDTO -o ~/.babushka/downloads/#{dmg_name}")
+      log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name} ~/.babushka/downloads/#{dmg_name}.cdr")
+      log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
 
       after {
         log "Detaching DMG and deleting the .cdr we created"
-        shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmgname}/")
-        "~/.babushka/downloads/#{dmgname}.cdr".p.remove
+        shell("/usr/bin/hdiutil detach ~/.babushka/downloads/#{dmg_name}/")
+        "~/.babushka/downloads/#{dmg_name}.cdr".p.remove
       }
     }
   }
@@ -32,7 +28,12 @@ end
 
 dep 'OmniGraffle.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
-  dmgname 'OmniGrafflePro-5.3.3'
+  dmg_name 'OmniGrafflePro-5.3.3'
+end
+
+dep 'Evernote.app', :template => 'eula_app' do
+  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
+  dmg_name 'Evernote_172019'
 end
 
 
@@ -153,10 +154,6 @@ end
 
 dep 'KeyCastr.app' do
   source 'http://stephendeken.net/software/keycastr/releases/keycastr_0.8.0.dmg'
-end
-
-dep 'Evernote.app', :template => 'eula_app' do
-  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
 end
 
 dep 'Plex.app' do
