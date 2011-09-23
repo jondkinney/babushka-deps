@@ -32,6 +32,7 @@ dep 'MercuryMover.installer' do
       shell("/usr/bin/hdiutil detach ~/Downloads/mercury_mover/")
       "~/Downloads/MercuryMover.dmg".p.remove
       "~/Downloads/mercury_mover.cdr".p.remove
+      true
     }
   }
 end
