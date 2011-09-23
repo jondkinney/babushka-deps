@@ -143,7 +143,7 @@ end
 
 dep 'OmniGraffle.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
-  dmg_name = "OmniGrafflePro-5.3.3.dmg"
+  dmg_name 'OmniGrafflePro-5.3.3.dmg'
 end
 
 dep 'Firefox.app' do
