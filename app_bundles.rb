@@ -1,15 +1,18 @@
     meta 'eula_app' do
       accepts_value_for :app_name, :basename
       accepts_value_for :source, :source
+      accepts_value_for :dmg_name, :dmg_name
 
       template {
         met? {
           "/Applications/#{app_name}".p.exist?
         }
         meet {
-          dmg_name = "#{app_name}".downcase.gsub!(/.app/, '')
+          dmg_name ||= "#{app_name}".downcase.gsub!(/.app/, '')
       
-          log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
+          # log_shell("Downloading #{app_name}", "curl '#{source}' -o ~/.babushka/downloads/#{dmg_name}.dmg")
+          log "Using Babushka's Resource.download to snatch #{app_name}"
+          Babushka::Resource.download("#{source}")
           log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name}.dmg -format UDTO -o ~/.babushka/downloads/#{dmg_name}")
           log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name} ~/.babushka/downloads/#{dmg_name}.cdr")
           log_shell("Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name}/#{app_name} /Applications")
@@ -137,6 +140,7 @@ end
 
 dep 'OmniGraffle.app', :template => 'eula_app' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
+  dmg_name = "OmniGrafflePro-5.3.3.dmg"
 end
 
 dep 'Firefox.app' do

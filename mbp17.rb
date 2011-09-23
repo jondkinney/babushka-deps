@@ -57,7 +57,7 @@ dep 'osx apps installed' do
            'Fluid.app',
            'Google Chrome.app',
            'Notational Velocity.app',
-           'OmniGraffle.app',
+           'OmniGrafflePro-5.3.3.dmg',
            'Pixelmator.app',
            'Plex.app',
            'Skype.app',
