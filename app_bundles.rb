@@ -30,8 +30,8 @@ meta 'eula_app' do
   }
 end
 
-dep 'OmniGraffle.app', :template => 'eula_app' do
-  dmgname 'OmniGrafflePro-5.3.3.dmg'
+dep 'OmniGraffle.app', :template => 'eula_app' do |dmgname|
+  dmgname = 'OmniGrafflePro-5.3.3.dmg'
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
 end
 
