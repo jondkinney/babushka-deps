@@ -122,7 +122,25 @@ dep 'KeyCastr.app' do
 end
 
 dep 'Evernote.app' do
-  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'
+  # source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'
+  accepts_value_for :appname, :basename
+  
+  met? {
+    "/Applications/Evernote.app".p.exist?
+  }
+  meet {
+    log_shell("Downloading App", "curl 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg' -o ~/Downloads/app.dmg")
+    log_shell("Stripping EULA","/usr/bin/hdiutil convert -quiet ~/Downloads/app.dmg -format UDTO -o ~/Downloads/app")
+    log_shell("Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/Downloads/app ~/Downloads/app.cdr")
+    log_shell("Copying into /Applications","sudo cp -r ~/Downloads/app/#{appname} /Applications")
+
+    after {
+      log "Detaching DMG and cleaning up (deleting downloaded files)"
+      shell("/usr/bin/hdiutil detach ~/Downloads/app/")
+      "~/Downloads/app.dmg".p.remove
+      "~/Downloads/app.cdr".p.remove
+    }
+  }
 end
 
 dep 'Plex.app' do
