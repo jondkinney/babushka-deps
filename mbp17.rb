@@ -1,12 +1,4 @@
 # Complete setup for my Macbook Pro, 'mbp17'
-
-dep 'mbp-dotfiles-prefs-zsh-vim' do
-  requires 'dotfiles', 
-           'private-dotfiles',
-           'os x prefs',
-           'oh-my-zsh and janus'
-end
-
 dep 'mbp17' do
   requires 'dotfiles', 
            'private-dotfiles'
