@@ -35,7 +35,7 @@ dep 'special' do
            'npm',
            'nvm',
            'oh-my-zsh and janus',
-           'postgres.managed',
+           'postgresql.managed',
            'Pow',
            'rvm'
 

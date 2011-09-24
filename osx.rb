@@ -80,11 +80,16 @@ end
 
 
 dep 'os x prefs' do
-  requires 'save dialog expanded'
+  requires 'save dialog expanded',
+           'locatedb'
 end
 
 dep 'save dialog expanded' do
   shell "defaults write -g NSNavPanelExpandedStateForSaveMode -bool YES"
+end
+
+dep 'locatedb' do
+  shell "sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
 end
 
 # dep 'finder view preferences' do
