@@ -253,8 +253,8 @@ dep 'additional prefs' do
   # Enable Dashboard dev mode (allows keeping widgets on the desktop)
   shell "defaults write com.apple.dashboard devmode -bool true"
 
-  # Reset Launchpad
-  shell "rm ~/Library/Application\ Support/Dock/*.db"
+  # # Reset Launchpad
+  # shell "rm ~/Library/Application\ Support/Dock/*.db"
 
   # Show the ~/Library folder
   shell "chflags nohidden ~/Library"
@@ -262,8 +262,8 @@ dep 'additional prefs' do
   # Disable local Time Machine backups
   shell "sudo tmutil disablelocal"
 
-  # Kill affected applications
-  shell 'for app in Safari Finder Dock Mail; do killall "$app"; done'
+  # Kill affected applications (hopefully you don't have Mail or Safari Open when running this script)
+  shell 'for app in Finder Dock; do killall "$app"; done'
 
   # Fix for the ancient UTF-8 bug in QuickLook (http://mths.be/bbo)
   shell 'echo "0x08000100:0" > ~/.CFUserTextEncoding'
