@@ -50,8 +50,8 @@ dep 'special' do
   # System Level
   requires 'Growl.installer',
            'KeyRemap4MacBook.installer',
+           'locatedb',
            'MercuryMover.installer',
-           'screenshot settings configured',
            'SIMBL.installer',
            'teleport.installer'
 end

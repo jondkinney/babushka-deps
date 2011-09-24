@@ -206,3 +206,13 @@ end
 dep 'xScope.app' do
   source 'http://iconfactory.com/assets/software/xscope/xScope_251.zip'
 end
+
+
+
+
+# Non-Standard Apps
+# -----------------
+dep 'SIMBL.installer' do
+  source 'http://www.culater.net/dl/files/SIMBL-0.9.9.zip'
+  met? { '/Library/ScriptingAdditions/SIMBL.osax'.p.exists? }
+end
