@@ -25,7 +25,7 @@ meta 'skip_eula_prompt' do
 end
 
 dep 'OmniGraffle Professional 5.app', :template => 'skip_eula_prompt' do
-  source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.3.dmg'
+  source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.4.dmg'
   dmg_name 'OmniGrafflePro-5.3.3.dmg'
 end
 
