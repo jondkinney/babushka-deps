@@ -81,8 +81,13 @@ end
 
 dep 'os x prefs' do
   requires 'save dialog expanded',
-           'locatedb'
+           'locatedb',
+           'no hide library',
+           'no bounce dock',
+           'full path in title of finder windows',
+           
 end
+
 
 dep 'save dialog expanded' do
   shell "defaults write -g NSNavPanelExpandedStateForSaveMode -bool YES"
@@ -92,14 +97,21 @@ dep 'locatedb' do
   shell "sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
 end
 
-# dep 'finder view preferences' do
-#   met? {
-#     '~/Library/Preferences/com.apple.finder.plist'.p.exist?
-#   }
-#   meet {
-#     log_shell("Setting up finder preferences", "defaults write com.apple")
-#   }
-# end
+dep 'no hide library' do
+  shell "chflags nohidden ~/Library"
+end
+
+dep 'no bounce dock' do
+  shell "defaults write com.apple.dock no-bouncing -bool True;killall -HUP Dock"
+end
+
+dep 'dock on left' do
+  shell "defaults write com.apple.dock orientation -string left;killall -HUP Dock"
+end
+
+dep 'full path in title of finder windows' do
+  shell "defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES;killall -HUP Finder"
+end
 
 
 # Non-Standard Apps
