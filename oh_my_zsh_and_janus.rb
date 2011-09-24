@@ -4,7 +4,7 @@ dep 'oh-my-zsh and janus' do
   }
 
   meet {
-    log "Initializing the submodule for .oh-my-zsh"
+    log "Initializing the submodule for .oh-my-zsh and .vim"
     shell 'cd ~/.dotfiles; git submodule init; git submodule update;'
     log_shell "Symlinking j2fly_shortcuts.zsh", "ln -nsF /Users/`whoami`/.dotfiles/zsh_conf/custom/j2fly_shortcuts.zsh /Users/`whoami`/.oh-my-zsh/custom/j2fly_shortcuts.zsh"
     log_shell "Symlinking j2fly zsh theme", "ln -nsF /Users/`whoami`/.dotfiles/zsh_conf/j2fly.zsh-theme /Users/`whoami`/.oh-my-zsh/themes/j2fly.zsh-theme"

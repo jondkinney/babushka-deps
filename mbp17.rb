@@ -1,8 +1,17 @@
 # Complete setup for my Macbook Pro, 'mbp17'
 
+dep 'mbp-dotfiles-prefs-zsh-vim' do
+  requires 'dotfiles', 
+           'private-dotfiles',
+           'os x prefs',
+           'oh-my-zsh and janus'
+end
+
 dep 'mbp17' do
   requires 'dotfiles', 
            'private-dotfiles'
+
+  requires 'os x prefs'
 
   requires 'brew packages'
            
@@ -10,7 +19,6 @@ dep 'mbp17' do
 
   requires 'osx apps installed'
   
-  requires 'os x prefs'
 end
 
 dep 'brew packages' do
@@ -31,7 +39,7 @@ dep 'special' do
 #  'coffeescript.src',
   requires 'HEXColorPicker',
            'macvim',
-           'mysql configured',
+           'mysql.managed',
            'npm',
            'nvm',
            'oh-my-zsh and janus',
