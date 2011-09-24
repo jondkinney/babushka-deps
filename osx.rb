@@ -116,13 +116,13 @@ end
 
 # Setup Preferences typically configured in the GUI at Finder > View > Show View Options
 dep 'finder view options' do
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:arrangeBy' name" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:gridSpacing' 100" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:iconSize' 44" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:labelOnBottom' false" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showItemInfo' true" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:showIconPreview' true" ~/Library/Preferences/com.apple.finder.plist"
-  shell "/usr/libexec/PlistBuddy -c "Set ':DesktopViewSettings:IconViewSettings:textSize' 11" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:arrangeBy' name\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:gridSpacing' 100\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:iconSize' 44\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:labelOnBottom' false\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:showItemInfo' true\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:showIconPreview' true\" ~/Library/Preferences/com.apple.finder.plist"
+  shell "/usr/libexec/PlistBuddy -c \"Set ':DesktopViewSettings:IconViewSettings:textSize' 11\" ~/Library/Preferences/com.apple.finder.plist"
 end
 
 dep 'additional prefs' do
