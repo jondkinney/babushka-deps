@@ -109,7 +109,7 @@ dep 'Show these items on the desktop' do
   shell "defaults write com.apple.finder ShowMountedServersOnDesktop -bool true"
 end
 
-dep 'New Finder windows show' do
+dep 'New Finder window show' do
   # Set this to open to the home directory, not "All My Files", if you want All My Files though it's PfAF
   shell "defaults write com.apple.finder NewWindowTarget PfHm"  
 end
