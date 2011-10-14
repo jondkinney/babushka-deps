@@ -192,7 +192,7 @@ dep 'Things.app' do
 end
 
 dep 'Transmission.app' do
-  source 'http://download.transmissionbt.com/files/Transmission-2.33.dmg'
+  source 'http://www.macupdate.com/download/19378/Transmission-2.41.dmg'
 end
 
 dep 'TextMate.app' do
