@@ -39,6 +39,11 @@ dep 'SuperDuper!.app', :template => 'skip_eula_prompt' do
   dmg_name 'SuperDuper!.dmg'
 end
 
+dep 'Mailplane.app', :template => 'skip_eula_prompt' do
+  source 'http://mailplaneapp.com/downloads/MailplaneSL_1647.dmg'
+  dmg_name 'MailplaneSL_1647.dmg'
+end
+
 
 # Mac App Store Apps
 # ------------------
@@ -184,10 +189,6 @@ end
 
 dep 'Sparrow.app' do
   source 'http://download.sparrowmailapp.com/appcast/Sparrow-latest.dmg'
-end
-
-dep 'Mailplane.app' do
-  source 'http://mailplaneapp.com/downloads/MailplaneSL_1647.dmg'
 end
 
 dep 'Carbon Copy Cloner.app' do
