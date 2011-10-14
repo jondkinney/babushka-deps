@@ -30,7 +30,7 @@ dep 'special' do
   # Custom Installs (each maps to a file in this repo)
 #  'coffeescript.src',
   requires 'HEXColorPicker',
-           'macvim',
+           # 'macvim',
            'mysql.managed',
            'npm',
            'nvm',
