@@ -68,6 +68,7 @@ dep 'osx apps installed' do
            'Things.app',
            'Transmission.app',
            'DaisyDisk.app',
+           'ExpanDrive.app',
            'VLC.app'
 
   # Development
