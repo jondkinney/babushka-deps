@@ -46,10 +46,13 @@ end
 # dep 'Skitch.app'
 # dep 'QuickCal.app'
 # dep 'QuickURLShortener.app'
-# dep 'Alfred.app'
 
 # Normal Apps
 # ----------------
+dep 'Alfred.app' do
+  source 'http://media.alfredapp.com/alfred_0.9.10_152.dmg'
+end
+
 dep 'SizeUp.app' do
   source 'http://irradiatedsoftware.com/download/SizeUp.zip'
 end
