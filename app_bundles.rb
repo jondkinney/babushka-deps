@@ -191,11 +191,11 @@ dep 'Things.app' do
   source 'http://culturedcode.com/things/download/?e=3102'
 end
 
-dep 'Transmission.src' do
-  source 'svn://svn.transmissionbt.com/Transmission/trunk'
-  build { shell "./autogen.sh && make -s" }
-  install { shell "sudo make install" }
-  #source 'http://www.macupdate.com/download/19378/Transmission-2.41.dmg'
+dep 'Transmission.app' do
+  #source 'svn://svn.transmissionbt.com/Transmission/trunk'
+  #build { shell "./autogen.sh && make -s" }
+  #install { shell "sudo make install" }
+  source 'http://download.transmissionbt.com/files/Transmission-2.41.dmg'
   #$ svn co svn://svn.transmissionbt.com/Transmission/trunk Transmission
   #$ cd Transmission
   #$ ./autogen.sh && make -s
