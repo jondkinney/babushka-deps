@@ -104,7 +104,7 @@ dep 'osx apps installed' do
            'TotalFinder.app',
            'TotalTerminal.app',
            'UnRarX.app',
-           'Xmarks.app'
+           'Xmarks.installer'
   # Tools
   requires '1Password.app',
            'Acorn.app',

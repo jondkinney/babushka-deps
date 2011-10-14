@@ -212,8 +212,9 @@ dep 'UnRarX.app' do
   source 'http://www.unrarx.com/files/UnRarX_2.2.zip'
 end
 
-dep 'Xmarks.app' do
+dep 'Xmarks.installer' do
   source 'http://download.xmarks.com/download/binary/safari'
+  provides []
 end
 
 # note: not working...
