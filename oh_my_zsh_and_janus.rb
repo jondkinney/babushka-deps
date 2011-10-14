@@ -11,6 +11,7 @@ dep 'oh-my-zsh and janus' do
     log_shell "Raking Janus... um, yea... TWSS?", "cd ~/.vim;rake"
     log_shell "Symlinking j2fly.vim colorscheme", "ln -nsF /Users/`whoami`/.dotfiles/vim_conf/colors/j2fly.vim /Users/`whoami`/.vim/colors/j2fly.vim"
     log_shell "Symlinking j2fly.snippets", "ln -nsF /Users/`whoami`/.dotfiles/vim_conf/snippets/j2fly.snippets /Users/`whoami`/.vim/snippets/j2fly.snippets"
+    log_shell "Symlinking mvim script to a folder in the path", "ln -nsF /Users/`whoami`/.dotfiles/vim_conf/mvim /usr/local/bin/mvim"
   }
 end
   
