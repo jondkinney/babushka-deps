@@ -13,7 +13,11 @@ meta 'skip_eula_prompt' do
       Babushka::Resource.get("#{source}") do end
       log_shell "Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/app"
       log_shell "Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/app ~/.babushka/downloads/app.cdr"
-      log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/*.app /Applications", :spinner => true
+      if "~/.babushka/downloads/app/*.app".p.exists?
+        log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/*.app /Applications", :spinner => true
+      else
+        log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}", :spinner => true
+      end
 
       after {
         log "Detaching DMG and deleting the .cdr we created"
