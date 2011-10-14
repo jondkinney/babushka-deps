@@ -55,7 +55,7 @@ dep 'osx apps installed' do
            'ColorSchemer Studio 2.app',
            'Echofon.app',
            'Evernote.app',
-           #'Firefox.app',
+           'Firefox.app',
            'Fluid.app',
            'Google Chrome.app',
            'Notational Velocity.app',
