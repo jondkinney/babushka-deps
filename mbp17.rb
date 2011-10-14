@@ -51,8 +51,7 @@ end
 
 dep 'osx apps installed' do
   # Social, Web, Media etc.
-  requires 'Alfred.app',
-           'Colloquy.app',
+  requires 'Colloquy.app',
            'ColorSchemer Studio 2.app',
            'Echofon.app',
            'Evernote.app',
@@ -68,8 +67,6 @@ dep 'osx apps installed' do
            'Mailplane.app',
            'Things.app',
            'Transmission.app',
-           'DaisyDisk.app',
-           'ExpanDrive.app',
            'VLC.app'
 
   # Development
@@ -84,8 +81,11 @@ dep 'osx apps installed' do
 
   # System utilities
   requires 'Airfoil.app',
+           'Alfred.app',
            'Carbon Copy Cloner.app',
+           'DaisyDisk.app',
            'Dropbox.app',
+           'ExpanDrive.app',
            # 'Flip4Mac',
            'Flux.app',
            'gfxCardStatus.app',
