@@ -51,7 +51,8 @@ end
 
 dep 'osx apps installed' do
   # Social, Web, Media etc.
-  requires 'Colloquy.app',
+  requires 'Alfred.app',
+           'Colloquy.app',
            'ColorSchemer Studio 2.app',
            'Echofon.app',
            'Evernote.app',
