@@ -135,7 +135,7 @@ dep 'Airfoil.app' do
 end
 
 dep 'Skype.app' do
-  source 'http://www.skype.com/go/getskype-macosx.dmg'
+  source 'http://www.skype.com/go/getskype-macosx-samplingb'
 end
 
 dep 'VirtualBox.installer' do
@@ -152,7 +152,7 @@ dep 'Acorn.app' do
 end
 
 dep 'Firefox.app' do
-  source 'http://mirror.internode.on.net/pub/mozilla/firefox/releases/latest/mac/en-US/Firefox%206.0.2.dmg'
+  source 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest/mac/en-US/Firefox%207.0.1.dmg'
 end
 
 dep 'KeyCastr.app' do
