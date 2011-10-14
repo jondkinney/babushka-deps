@@ -64,6 +64,7 @@ dep 'osx apps installed' do
            'Plex.app',
            'Skype.app',
            'Sparrow.app',
+           'Mailplane.app',
            'Things.app',
            'Transmission.app',
            'DaisyDisk.app',
