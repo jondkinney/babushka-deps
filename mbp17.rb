@@ -65,7 +65,7 @@ dep 'osx apps installed' do
            'Skype.app',
            'Sparrow.app',
            'Things.app',
-           'Transmission.src',
+           'Transmission.app',
            'VLC.app'
 
   # Development
