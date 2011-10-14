@@ -102,6 +102,7 @@ end
 
 dep 'Flip4Mac.installer' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
+  provides []
 end
 
 dep 'Fluid.app' do
