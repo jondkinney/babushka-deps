@@ -66,6 +66,7 @@ dep 'osx apps installed' do
            'Sparrow.app',
            'Things.app',
            'Transmission.app',
+           'DaisyDisk.app',
            'VLC.app'
 
   # Development
