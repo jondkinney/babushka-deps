@@ -102,7 +102,7 @@ dep 'osx apps installed' do
            'Spark.app',
            'Stay.app',
            'TotalFinder.app',
-           'TotalTerminal',
+           'TotalTerminal.app',
            'UnrarX.app',
            'Xmarks.app'
   # Tools
