@@ -82,7 +82,7 @@ dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
 
-dep 'Flip4Mac' do
+dep 'Flip4Mac.app' do
   source 'http://www.microsoft.com/download/en/confirmation.aspx?id=9442'
 end
 
