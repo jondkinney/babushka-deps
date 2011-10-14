@@ -208,7 +208,7 @@ dep 'TotalTerminal.app' do
   source 'http://downloads.binaryage.com/TotalTerminal-1.1.4.dmg'
 end
 
-dep 'UnrarX.app' do
+dep 'UnRarX.app' do
   source 'http://www.unrarx.com/files/UnRarX_2.2.zip'
 end
 

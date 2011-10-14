@@ -103,7 +103,7 @@ dep 'osx apps installed' do
            'Stay.app',
            'TotalFinder.app',
            'TotalTerminal.app',
-           'UnrarX.app',
+           'UnRarX.app',
            'Xmarks.app'
   # Tools
   requires '1Password.app',
