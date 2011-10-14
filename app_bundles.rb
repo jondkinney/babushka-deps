@@ -183,6 +183,10 @@ dep 'Sparrow.app' do
   source 'http://download.sparrowmailapp.com/appcast/Sparrow-latest.dmg'
 end
 
+dep 'Mailplane.app' do
+  source 'http://mailplaneapp.com/download/thanks/stableSL/'
+end
+
 dep 'Carbon Copy Cloner.app' do
   source 'http://web.mac.com/bombich/ccc-3.4.2.dmg'
 end
