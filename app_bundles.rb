@@ -6,10 +6,10 @@ meta 'skip_eula_prompt' do
 
   template {
     met? {
-      if "~/.babushka/downloads/app/*.app".p.exists?
-        "/Applications/#{dmg_name.gsub(/\.dmg/,'')}".p.exists?
-      else
-        "/Applications/#{app_name}".p.exist?
+      if "/Applications/#{app_name}".p.exist? || installed == true
+        true
+      else 
+        false
       end
     }
     meet {
@@ -22,6 +22,7 @@ meta 'skip_eula_prompt' do
       else
         log_shell "Making container folder for non-standard EULA app (ugh dumb)", "sudo mkdir -p /Applications/#{dmg_name.gsub(/\.dmg/,'')}"
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}/", :spinner => true
+        installed = true
       end
 
       after {
