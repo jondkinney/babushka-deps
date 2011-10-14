@@ -184,7 +184,7 @@ dep 'Sparrow.app' do
 end
 
 dep 'Mailplane.app' do
-  source 'http://mailplaneapp.com/download/thanks/stableSL'
+  source 'http://mailplaneapp.com/downloads/MailplaneSL_1647.dmg'
 end
 
 dep 'Carbon Copy Cloner.app' do
