@@ -95,7 +95,7 @@ dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
 
-dep 'Flip4Mac' do
+dep 'Flip4Mac.app' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
 end
 
@@ -213,15 +213,7 @@ dep 'Things.app' do
 end
 
 dep 'Transmission.app' do
-  #source 'svn://svn.transmissionbt.com/Transmission/trunk'
-  #build { shell "./autogen.sh && make -s" }
-  #install { shell "sudo make install" }
   source 'http://download.transmissionbt.com/files/Transmission-2.41.dmg'
-  #$ svn co svn://svn.transmissionbt.com/Transmission/trunk Transmission
-  #$ cd Transmission
-  #$ ./autogen.sh && make -s
-  #$ su (if necessary for the next line)
-  #$ make install
 end
 
 dep 'DaisyDisk.app' do
@@ -242,6 +234,10 @@ end
 
 dep 'xScope.app' do
   source 'http://iconfactory.com/assets/software/xscope/xScope_251.zip'
+end
+
+dep 'MacVim.app' do
+  source 'https://github.com/downloads/b4winckler/macvim/MacVim-snapshot-62.tbz'
 end
 
 

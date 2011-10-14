@@ -73,6 +73,7 @@ dep 'osx apps installed' do
   requires 'CoRD.app',
            'GitX.app',
            'iTerm.app',
+           'MacVim.app',
            'Reggy.app',
            'Sequel Pro.app',
            'Snippets.app',
@@ -86,7 +87,7 @@ dep 'osx apps installed' do
            'DaisyDisk.app',
            'Dropbox.app',
            'ExpanDrive.app',
-           'Flip4Mac',
+           'Flip4Mac.app',
            'Flux.app',
            'gfxCardStatus.app',
            'iStat Menus.app',
@@ -104,7 +105,6 @@ dep 'osx apps installed' do
            'xScope.app'
 
   # Mac App Store Apps (install through the store)
-           # 'Alfred.app',
            # 'Cloud.app',
            # 'QuickCal.app',
            # 'QuickURLShortener.app',
