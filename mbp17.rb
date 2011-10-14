@@ -87,7 +87,7 @@ dep 'osx apps installed' do
            'DaisyDisk.app',
            'Dropbox.app',
            'ExpanDrive.app',
-           'Flip4Mac.app',
+           # 'Flip4Mac.app',
            'Flux.app',
            'gfxCardStatus.app',
            'iStat Menus.app',
