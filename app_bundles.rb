@@ -186,7 +186,9 @@ dep 'Cinch.app' do
 end
 
 dep 'CrashPlan.installer' do
+  requires 'JavaRuntime.installer'
   source 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.0.3_Mac.dmg'
+  provides ''
 end
 
 dep 'Cyberduck.app' do
