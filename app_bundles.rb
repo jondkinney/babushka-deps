@@ -39,6 +39,11 @@ dep 'SuperDuper!.app', :template => 'skip_eula_prompt' do
   dmg_name 'SuperDuper!.dmg'
 end
 
+dep 'Mailplane.app', :template => 'skip_eula_prompt' do
+  source 'http://mailplaneapp.com/downloads/MailplaneSL_1647.dmg'
+  dmg_name 'MailplaneSL_1647.dmg'
+end
+
 
 # Mac App Store Apps
 # ------------------
@@ -46,7 +51,6 @@ end
 # dep 'Skitch.app'
 # dep 'QuickCal.app'
 # dep 'QuickURLShortener.app'
-# dep 'Alfred.app'
 
 
 # Fluid Apps
@@ -63,6 +67,10 @@ end
 
 # Normal Apps
 # ----------------
+dep 'Alfred.app' do
+  source 'http://media.alfredapp.com/alfred_0.9.10_152.dmg'
+end
+
 dep 'SizeUp.app' do
   source 'http://irradiatedsoftware.com/download/SizeUp.zip'
 end
@@ -87,9 +95,9 @@ dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
 
-# dep 'Flip4Mac' do
-#   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.3.8.1.dmg'
-# end
+dep 'Flip4Mac' do
+  source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
+end
 
 dep 'Fluid.app' do
   source 'http://fluidapp.com/dist/Fluid_1.2.zip'
@@ -128,7 +136,7 @@ dep 'CoRD.app' do
 end
 
 dep 'TotalFinder.app' do
-  source 'http://downloads.binaryage.com/TotalFinder-1.2.5.dmg'
+  source 'http://downloads.binaryage.com/TotalFinder-1.3.dmg'
 end
 
 dep 'Google Chrome.app' do
@@ -148,7 +156,7 @@ dep 'Airfoil.app' do
 end
 
 dep 'Skype.app' do
-  source 'http://www.skype.com/go/getskype-macosx.dmg'
+  source 'http://www.skype.com/go/getskype-macosx-samplingb'
 end
 
 dep 'VirtualBox.installer' do
@@ -165,7 +173,7 @@ dep 'Acorn.app' do
 end
 
 dep 'Firefox.app' do
-  source 'http://mirror.internode.on.net/pub/mozilla/firefox/releases/latest/mac/en-US/Firefox%206.0.2.dmg'
+  source 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest/mac/en-US/Firefox%207.0.1.dmg'
 end
 
 dep 'KeyCastr.app' do
@@ -205,7 +213,23 @@ dep 'Things.app' do
 end
 
 dep 'Transmission.app' do
-  source 'http://download.transmissionbt.com/files/Transmission-2.33.dmg'
+  #source 'svn://svn.transmissionbt.com/Transmission/trunk'
+  #build { shell "./autogen.sh && make -s" }
+  #install { shell "sudo make install" }
+  source 'http://download.transmissionbt.com/files/Transmission-2.41.dmg'
+  #$ svn co svn://svn.transmissionbt.com/Transmission/trunk Transmission
+  #$ cd Transmission
+  #$ ./autogen.sh && make -s
+  #$ su (if necessary for the next line)
+  #$ make install
+end
+
+dep 'DaisyDisk.app' do
+  source 'https://s3.amazonaws.com/DaisyDisk_Public/DaisyDisk.dmg'
+end
+
+dep 'ExpanDrive.app' do
+  source 'http://www.expandrive.com/ExpanDrive.zip'
 end
 
 dep 'TextMate.app' do

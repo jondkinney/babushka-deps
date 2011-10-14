@@ -64,6 +64,7 @@ dep 'osx apps installed' do
            'Plex.app',
            'Skype.app',
            'Sparrow.app',
+           'Mailplane.app',
            'Things.app',
            'Transmission.app',
            'VLC.app'
@@ -80,9 +81,12 @@ dep 'osx apps installed' do
 
   # System utilities
   requires 'Airfoil.app',
+           'Alfred.app',
            'Carbon Copy Cloner.app',
+           'DaisyDisk.app',
            'Dropbox.app',
-           # 'Flip4Mac',
+           'ExpanDrive.app',
+           'Flip4Mac',
            'Flux.app',
            'gfxCardStatus.app',
            'iStat Menus.app',
