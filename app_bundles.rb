@@ -186,7 +186,7 @@ dep 'Cinch.app' do
 end
 
 dep 'CrashPlan.installer' do
-  requires 'JavaRuntime.installer'
+  # requires 'JavaRuntime.installer' #NOTE: just let Lion prompt for the runtime env
   source 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.0.3_Mac.dmg'
   provides [] 
 end
@@ -215,9 +215,10 @@ dep 'Xmarks.app' do
   source 'http://download.xmarks.com/download/binary/safari'
 end
 
-dep 'DisplayLink.app' do
-  source 'http://displaylink.org/forum/attachment.php?attachmentid=453&d=1315581630'
-end
+# note: not working...
+# dep 'DisplayLink.app' do
+  # source 'http://displaylink.org/forum/attachment.php?attachmentid=453&d=1315581630'
+# end
 
 # dep '' do
   # source ''

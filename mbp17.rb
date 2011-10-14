@@ -89,7 +89,7 @@ dep 'osx apps installed' do
            'CrashPlan.installer',
            'Cyberduck.app',
            'DaisyDisk.app',
-           'DisplayLink.app',
+           # 'DisplayLink.app',
            'Dropbox.app',
            'ExpanDrive.app',
            'Flip4Mac.installer',
