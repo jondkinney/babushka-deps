@@ -83,7 +83,7 @@ dep 'SmartSleep.app' do
 end
 
 dep 'Flip4Mac.app' do
-  source 'http://www.microsoft.com/download/en/confirmation.aspx?id=9442'
+  source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
 end
 
 dep 'Fluid.app' do
