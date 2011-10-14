@@ -211,6 +211,10 @@ dep 'DaisyDisk.app' do
   source 'https://s3.amazonaws.com/DaisyDisk_Public/DaisyDisk.dmg'
 end
 
+dep 'ExpanDrive.app' do
+  source 'http://www.expandrive.com/ExpanDrive.zip'
+end
+
 dep 'TextMate.app' do
   source 'http://download.macromates.com/TextMate_1.5.10.zip'
 end
