@@ -191,8 +191,20 @@ dep 'Things.app' do
   source 'http://culturedcode.com/things/download/?e=3102'
 end
 
-dep 'Transmission.app' do
-  source 'http://www.macupdate.com/download/19378/Transmission-2.41.dmg'
+dep 'Transmission.src' do
+  source 'svn://svn.transmissionbt.com/Transmission/trunk'
+  build { shell "./autogen.sh && make -s" }
+  install { shell "sudo make install" }
+  #source 'http://www.macupdate.com/download/19378/Transmission-2.41.dmg'
+  #$ svn co svn://svn.transmissionbt.com/Transmission/trunk Transmission
+  #$ cd Transmission
+  #$ ./autogen.sh && make -s
+  #$ su (if necessary for the next line)
+  #$ make install
+end
+
+dep 'DaisyDisk.app' do
+  source 'https://s3.amazonaws.com/DaisyDisk_Public/DaisyDisk.dmg'
 end
 
 dep 'TextMate.app' do
