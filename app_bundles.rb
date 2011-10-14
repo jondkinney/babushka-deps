@@ -172,6 +172,54 @@ dep 'Acorn.app' do
   source 'http://flyingmeat.com/download/Acorn.zip'
 end
 
+dep 'Calico.app' do
+  source 'http://www.kekus.com/downloads/calico_2_2.dmg'
+end
+
+dep 'Cinch.app' do
+  source 'http://irradiatedsoftware.com/download/Cinch.zip'
+end
+
+dep 'CrashPlan.app' do
+  source 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.0.3_Mac.dmg'
+end
+
+dep 'Cyberduck.app' do
+  source 'http://cyberduck.ch/Cyberduck-4.1.3.zip'
+end
+
+dep 'iTeleport.app' do
+  source 'http://www.iteleportmobile.com/download/iTeleport%20Installer.v5.1.4.dmg'
+end
+
+dep 'Picturesque.app' do
+  source 'http://www.acqualia.com/files/download.php?product=picturesque'
+end
+
+dep 'TotalTerminal.app' do
+  source 'http://downloads.binaryage.com/TotalTerminal-1.1.4.dmg'
+end
+
+dep 'UnrarX.app' do
+  source 'http://www.unrarx.com/files/UnRarX_2.2.zip'
+end
+
+dep 'Xmarks.app' do
+  source 'http://download.xmarks.com/download/binary/safari'
+end
+
+dep 'DisplayLink.app' do
+  source 'http://displaylink.org/forum/attachment.php?attachmentid=453&d=1315581630'
+end
+
+dep 'AppZapper.app' do
+  source 'http://www.appzapper.com/downloads/appzapper.dmg'
+end
+
+# dep '' do
+  # source ''
+# end
+
 dep 'Firefox.app' do
   source 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/latest/mac/en-US/Firefox%207.0.1.dmg'
 end
