@@ -48,6 +48,19 @@ end
 # dep 'QuickURLShortener.app'
 # dep 'Alfred.app'
 
+
+# Fluid Apps
+dep 'FluidApps' do
+  met? {
+    "/Applications/FluidApps".p.exists?
+  }
+
+  meet {
+    log_shell "Cloning into /Applications/FluidApps","git clone https://j2fly@github.com/j2fly/Fluid-Apps.git /Applications/FluidApps", :spinner => true
+  } 
+end
+
+
 # Normal Apps
 # ----------------
 dep 'SizeUp.app' do
