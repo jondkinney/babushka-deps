@@ -16,6 +16,7 @@ meta 'skip_eula_prompt' do
       if "~/.babushka/downloads/app/*.app".p.exists?
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/*.app /Applications", :spinner => true
       else
+        log_shell "Making container folder for non-standard EULA app (ugh dumb)", "sudo mkdir -p /Applications/#{dmg_name.gsub(/\.dmg/,'')}"
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/app/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}/", :spinner => true
       end
 
