@@ -100,7 +100,7 @@ dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
 
-dep 'Flip4Mac.app' do
+dep 'Flip4Mac.installer' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
 end
 
@@ -185,7 +185,7 @@ dep 'Cinch.app' do
   source 'http://irradiatedsoftware.com/download/Cinch.zip'
 end
 
-dep 'CrashPlan.app' do
+dep 'CrashPlan.installer' do
   source 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.0.3_Mac.dmg'
 end
 
