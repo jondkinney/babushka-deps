@@ -6,7 +6,11 @@ meta 'skip_eula_prompt' do
 
   template {
     met? {
-      "/Applications/#{app_name}".p.exist?
+      if "~/.babushka/downloads/app/*.app".p.exists?
+        "/Applications/#{dmg_name.gsub(/\.dmg/,'')}".p.exists?
+      else
+        "/Applications/#{app_name}".p.exist?
+      end
     }
     meet {
       log "Using Babushka's Resource.get to snatch #{app_name}"
