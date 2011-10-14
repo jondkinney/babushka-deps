@@ -57,6 +57,7 @@ dep 'osx apps installed' do
            'Evernote.app',
            'Firefox.app',
            'Fluid.app',
+           'FluidApps',
            'Google Chrome.app',
            'Notational Velocity.app',
            'OmniGraffle Professional 5.app',
