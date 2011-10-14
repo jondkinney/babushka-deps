@@ -29,6 +29,11 @@ dep 'AppZapper.app', :template => 'skip_eula_prompt' do
   dmg_name 'appzapper.dmg'
 end
 
+dep 'Calico.app', :template => 'skip_eula_prompt' do
+  source 'http://www.kekus.com/downloads/calico_2_2.dmg'
+  dmg_name 'calico_2_2.dmg'
+end
+
 dep 'OmniGraffle Professional 5.app', :template => 'skip_eula_prompt' do
   source 'http://www.omnigroup.com/ftp1/pub/software/MacOSX/10.5/OmniGrafflePro-5.3.4.dmg'
   dmg_name 'OmniGrafflePro-5.3.4.dmg'
@@ -102,7 +107,7 @@ end
 
 dep 'Flip4Mac.installer' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
-  provides []
+  met? { "/Applications/Flip4Mac".p.exists? }
 end
 
 dep 'Fluid.app' do
@@ -178,10 +183,6 @@ dep 'Acorn.app' do
   source 'http://flyingmeat.com/download/Acorn.zip'
 end
 
-dep 'Calico.app' do
-  source 'http://www.kekus.com/downloads/calico_2_2.dmg'
-end
-
 dep 'Cinch.app' do
   source 'http://irradiatedsoftware.com/download/Cinch.zip'
 end
@@ -189,7 +190,7 @@ end
 dep 'CrashPlan.installer' do
   # requires 'JavaRuntime.installer' #NOTE: just let Lion prompt for the runtime env
   source 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.0.3_Mac.dmg'
-  provides [] 
+  met? { "/Applications/CrashPlan.app".p.exists? }
 end
 
 dep 'Cyberduck.app' do
@@ -214,7 +215,7 @@ end
 
 dep 'Xmarks.installer' do
   source 'http://download.xmarks.com/download/binary/safari'
-  provides []
+  met? { "/Applications/Xmarks for Safari.app".p.exists? }
 end
 
 # note: not working...
