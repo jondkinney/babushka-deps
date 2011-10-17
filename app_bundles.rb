@@ -110,6 +110,12 @@ dep 'SmartSleep.app' do
   source 'http://www.jinx.de/SmartSleep_files/SmartSleep.current.dmg'
 end
 
+dep 'SmartSleepInsomniaPlugin.installer' do
+  source 'http://www.jinx.de/SmartSleep_files/SmartSleepInsomniaPlugin.1.2.0.pkg.zip'
+  after { log_shell "Touching an install file (ugh)","touch ~/Library/Application Support/Jinx/jonk_insomnia_plugin_installed"}
+  met? { "~/Library/Application Support/Jinx/jonk_insomnia_plugin_installed".p.exists? }
+end
+
 dep 'Flip4Mac.installer' do
   source 'http://download.microsoft.com/download/C/8/9/C8951314-E056-404A-8EA8-8744E42594AA/Flip4Mac%20WMV%202.4.0.11.dmg'
   met? { "/Applications/Flip4Mac".p.exists? }
