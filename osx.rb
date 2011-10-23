@@ -154,7 +154,7 @@ dep 'additional prefs' do
   shell "defaults write com.apple.finder WarnOnEmptyTrash -bool false"
 
   # Empty Trash securely by default
-  shell "defaults write com.apple.finder EmptyTrashSecurely -bool true"
+  # shell "defaults write com.apple.finder EmptyTrashSecurely -bool true"
 
   # Require password immediately after sleep or screen saver begins
   shell "defaults write com.apple.screensaver askForPassword -int 1"
