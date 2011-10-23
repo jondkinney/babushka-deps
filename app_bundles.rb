@@ -13,10 +13,10 @@ meta 'skip_eula_prompt' do
       Babushka::Resource.get("#{source}") do end
       log_shell "Stripping EULA","/usr/bin/hdiutil convert -quiet ~/.babushka/downloads/#{dmg_name} -format UDTO -o ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}"
       log_shell "Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')} ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}.cdr"
-      if "~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/*.app".p.exists?
+      if "~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}".include?("calico")
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/*.app /Applications", :spinner => true
       else
-        log_shell "Making container folder for non-standard EULA app (ugh dumb)", "sudo mkdir -p /Applications/#{dmg_name.gsub(/\.dmg/,'')}"
+        log_shell "Making container folder for non-standard EULA app", "sudo mkdir -p /Applications/#{dmg_name.gsub(/\.dmg/,'')}"
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}/", :spinner => true
       end
 
