@@ -134,7 +134,7 @@ dep 'Sequel Pro.app' do
 end
 
 dep 'Snippets.app' do
-  source 'http://snippetsapp.com/download/Snippets-1.3.2.dmg'
+  source 'http://www.snippetsapp.com/download/Snippets-1.3.2.html'
 end
 
 dep 'Spark.app' do
