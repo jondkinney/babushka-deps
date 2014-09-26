@@ -22,7 +22,7 @@ meta 'dotfiles' do
 
       if log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
         log "Symlinking"
-        shellout = raw_shell("cd ~/.#{target} && sh install.sh").stdout
+        shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && sh install.sh").stdout
         log "#{shellout}"
       else
         log_shell "Restoring ~/.bkp-#{target} to ~/.#{target}", "mv ~/.bkp-#{target} ~/.#{target}"
