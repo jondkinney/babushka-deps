@@ -15,7 +15,7 @@ meta 'dotfiles' do
     meet {
       if "~/.#{target}".p.exists?
         if "~/.bkp-#{target}".p.exists?
-          log_shell "Removing backup", "sudo rm -r ~/.bkp-#{target}"
+          log_shell "Removing backup", "rm -r ~/.bkp-#{target}"
         end
         log_shell "Backing up the existing ~/.#{target} to ~/.bkp-#{target}", "mv ~/.#{target} ~/.bkp-#{target}"
       end
