@@ -3,6 +3,9 @@ meta 'dotfiles' do
   accepts_value_for :target, :basename
 
   template {
+    met? {
+      false
+    }
     meet {
       if "~/.#{target}".p.exists?
         if "~/.bkp-#{target}".p.exists?
