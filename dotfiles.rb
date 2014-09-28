@@ -14,7 +14,7 @@ meta 'dotfiles' do
         log_shell "Backing up the existing ~/.#{target} to ~/.bkp-#{target}", "mv ~/.#{target} ~/.bkp-#{target}"
       end
 
-      if log_shell "Cloning", "git clone git@github.com:jondkinney/#{repo}.git ~/.#{target}"
+      if log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
         log "Symlinking"
         shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && sh install.sh").stdout
         log "#{shellout}"
