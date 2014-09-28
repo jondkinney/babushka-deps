@@ -4,7 +4,7 @@ meta 'dotfiles' do
 
   template {
     met? {
-      false
+      "~/.dotfiles".p.exists?
     }
     meet {
       if "~/.#{target}".p.exists?
