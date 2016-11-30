@@ -6,7 +6,7 @@ meta 'skip_eula_prompt' do
 
   template {
     met? {
-      "/Applications/#{app_name}".p.exist? || "/Applications/#{dmg_name.gsub(/\.dmg/,'')}".p.exist? 
+      "/Applications/#{app_name}".p.exist? || "/Applications/#{dmg_name.gsub(/\.dmg/,'')}".p.exist?
     }
     meet {
       log "Using Babushka's Resource.get to snatch #{app_name}"
@@ -15,7 +15,7 @@ meta 'skip_eula_prompt' do
       log_shell "Mounting and creating local folder with contents of DMG","/usr/bin/hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')} ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}.cdr"
       if "~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}".include?("calico")
         log_shell "Making container folder for non-standard EULA app", "sudo mkdir -p /Applications/#{dmg_name.gsub(/\.dmg/,'')}"
-        log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}/", :spinner => true      
+        log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/* /Applications/#{dmg_name.gsub(/\.dmg/,'')}/", :spinner => true
       else
         log_shell "Copying into /Applications","sudo cp -r ~/.babushka/downloads/#{dmg_name.gsub(/\.dmg/,'')}/*.app /Applications", :spinner => true
       end
@@ -45,7 +45,7 @@ dep 'OmniGraffle Professional 5.app', :template => 'skip_eula_prompt' do
 end
 
 dep 'Evernote.app', :template => 'skip_eula_prompt' do
-  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'  
+  source 'http://evernote.s3.amazonaws.com/mac/release/Evernote_172019.dmg'
   dmg_name 'Evernote_172019.dmg'
 end
 
@@ -76,7 +76,7 @@ dep 'FluidApps' do
 
   meet {
     log_shell "Cloning into /Applications/FluidApps","git clone https://j2fly@github.com/j2fly/Fluid-Apps.git /Applications/FluidApps", :spinner => true
-  } 
+  }
 end
 
 
@@ -304,14 +304,4 @@ end
 
 dep 'MacVim.app' do
   source 'https://github.com/downloads/b4winckler/macvim/MacVim-snapshot-62.tbz'
-end
-
-
-
-
-# Non-Standard Apps
-# -----------------
-dep 'SIMBL.installer' do
-  source 'http://www.culater.net/dl/files/SIMBL-0.9.9.zip'
-  met? { '/Library/ScriptingAdditions/SIMBL.osax'.p.exists? }
 end
