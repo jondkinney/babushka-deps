@@ -2,8 +2,6 @@ dep 'ack.managed'
 
 dep 'git.managed'
 
-dep 'growlnotify.managed'
-
 dep 'imagemagick.managed' do
   provides 'convert'
 end
