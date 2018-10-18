@@ -18,7 +18,8 @@ end
 dep 'dotfiles', :email do
   email.ask('What is your email?')
 
-  target, repo = 'dotfiles'
+  target = 'dotfiles'
+  repo = 'dotfiles'
   met? {
     "~/.#{target}".p.exists?
   }
