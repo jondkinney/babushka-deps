@@ -16,8 +16,8 @@ meta 'dotfiles' do
 end
 
 dep 'dotfiles', :full_name, :email do
-  full_name.ask('What full name do you want to associate with your github account?')
-  email.ask('What email do you want to associate with your github account?')
+  full_name.ask('What full name do you want to associate with your github account?').default('Jon Kinney')
+  email.ask('What email do you want to associate with your github account?').default('jonkinney@gmail.com')
 
   target = 'dotfiles'
   repo = 'dotfiles'
