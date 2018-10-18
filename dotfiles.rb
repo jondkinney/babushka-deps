@@ -15,11 +15,10 @@ meta 'dotfiles' do
   }
 end
 
-dep 'dotfiles', :email, :repo, :target do
-  repo.default(:basename)
-  target.default(:basename)
+dep 'dotfiles', :email do
   email.ask('What is your email?')
 
+  target, repo = 'dotfiles'
   met? {
     "~/.#{target}".p.exists?
   }
