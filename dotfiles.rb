@@ -17,7 +17,8 @@ meta 'dotfiles' do
   }
 end
 
-dep 'dotfiles', template: 'dotfiles' do
+dep 'dotfiles', :template, :email do
+  template.default('dotfiles')
   email.ask('What is your email?')
 end
 dep 'private-dotfiles', template: 'dotfiles'
