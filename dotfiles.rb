@@ -9,7 +9,7 @@ meta 'dotfiles' do
     meet {
       log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
       log "Symlinking"
-      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh").stdout
+      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && exec 3<&1;bash <&3 install.sh").stdout
       log "#{shellout}"
     }
   }
