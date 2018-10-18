@@ -1,8 +1,7 @@
 meta 'dotfiles' do
   accepts_value_for :repo, :basename
   accepts_value_for :target, :basename
-  # accepts_value_for :full_name
-  accepts_value_for :email
+  email.ask('What is your email?')
 
   template {
     met? {
@@ -18,14 +17,5 @@ meta 'dotfiles' do
   }
 end
 
-# dep 'dotfiles', :template, :full_name, :email do
-#   template.default('dotfiles')
-#   full_name.ask('What is your full name?')#.default('Jon Kinney')
-#   email.ask('What is your email?')#.default('jonkinney@gmail.com')
-# end
-
-dep 'dotfiles', :template, :email do
-  template.default('dotfiles')
-  email.ask('What is your email?')
-end
+dep 'dotfiles', template: 'dotfiles'
 dep 'private-dotfiles', template: 'dotfiles'
