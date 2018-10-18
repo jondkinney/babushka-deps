@@ -1,8 +1,8 @@
 meta 'dotfiles' do
   accepts_value_for :repo, :basename
   accepts_value_for :target, :basename
-  accepts_value_for :full_name
-  accepts_value_for :email
+  # accepts_value_for :full_name
+  # accepts_value_for :email
 
   template {
     met? {
