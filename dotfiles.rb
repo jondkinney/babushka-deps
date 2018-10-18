@@ -1,4 +1,4 @@
-meta 'dotfiles' do
+meta 'dotfiles', :email do
   accepts_value_for :repo, :basename
   accepts_value_for :target, :basename
   email.ask('What is your email?')
