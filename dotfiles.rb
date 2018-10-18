@@ -27,7 +27,7 @@ dep 'dotfiles', :full_name, :email do
   meet {
     log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
     log "Symlinking"
-    shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh Jono #{email}").stdout
+    shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh #{full_name} #{email}").stdout
     log "#{shellout}"
   }
 end
