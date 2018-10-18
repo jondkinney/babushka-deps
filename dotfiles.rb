@@ -15,7 +15,9 @@ meta 'dotfiles' do
   }
 end
 
-dep 'dotfiles', :email do
+dep 'dotfiles', :email, :repo, :target do
+  repo.default(:basename)
+  target.default(:basename)
   email.ask('What is your email?')
 
   met? {
