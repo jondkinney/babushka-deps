@@ -18,16 +18,14 @@ end
 dep 'dotfiles', :email do
   email.ask('What is your email?')
 
-  template {
-    met? {
-      "~/.#{target}".p.exists?
-    }
-    meet {
-      log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
-      log "Symlinking"
-      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh #{email}").stdout
-      log "#{shellout}"
-    }
+  met? {
+    "~/.#{target}".p.exists?
+  }
+  meet {
+    log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
+    log "Symlinking"
+    shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh #{email}").stdout
+    log "#{shellout}"
   }
 end
 dep 'private-dotfiles', template: 'dotfiles'
