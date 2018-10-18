@@ -19,8 +19,8 @@ end
 
 dep 'dotfiles', :template, :full_name, :email do
   template.default('dotfiles')
-  full_name.ask('What is your full name?').default('Jon Kinney')
-  email.ask('What is your email?').default('jonkinney@gmail.com')
+  full_name.ask('What is your full name?')#.default('Jon Kinney')
+  email.ask('What is your email?')#.default('jonkinney@gmail.com')
 end
 
 dep 'private-dotfiles', template: 'dotfiles'
