@@ -15,8 +15,9 @@ meta 'dotfiles' do
   }
 end
 
-dep 'dotfiles', :email do
-  email.ask('What is your email?')
+dep 'dotfiles', :full_name, :email do
+  full_name.ask('What full name do you want to associate with your github account?')
+  email.ask('What email do you want to associate with your github account?')
 
   target = 'dotfiles'
   repo = 'dotfiles'
@@ -26,7 +27,7 @@ dep 'dotfiles', :email do
   meet {
     log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
     log "Symlinking"
-    shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh #{email}").stdout
+    shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh '#{full_name}' #{email}").stdout
     log "#{shellout}"
   }
 end
