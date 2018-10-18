@@ -11,16 +11,18 @@ meta 'dotfiles' do
     meet {
       log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
       log "Symlinking"
-      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh \"#{full_name}\" #{email}").stdout
+      # shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh \"#{full_name}\" #{email}").stdout
+      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh 'Jon Kinney' jonkinney@gmail.com").stdout
       log "#{shellout}"
     }
   }
 end
 
-dep 'dotfiles', :template, :full_name, :email do
-  template.default('dotfiles')
-  full_name.ask('What is your full name?')#.default('Jon Kinney')
-  email.ask('What is your email?')#.default('jonkinney@gmail.com')
-end
+# dep 'dotfiles', :template, :full_name, :email do
+#   template.default('dotfiles')
+#   full_name.ask('What is your full name?')#.default('Jon Kinney')
+#   email.ask('What is your email?')#.default('jonkinney@gmail.com')
+# end
 
+dep 'dotfiles', template: 'dotfiles'
 dep 'private-dotfiles', template: 'dotfiles'
