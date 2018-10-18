@@ -12,7 +12,7 @@ meta 'dotfiles' do
       log_shell "Cloning", "git clone https://github.com/jondkinney/#{repo}.git ~/.#{target}"
       log "Symlinking"
       # shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh \"#{full_name}\" #{email}").stdout
-      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh 'Jon Kinney' jonkinney@gmail.com").stdout
+      shellout = raw_shell("cd ~/.#{target} && chmod +x install.sh && bash install.sh #{email}").stdout
       log "#{shellout}"
     }
   }
@@ -24,5 +24,7 @@ end
 #   email.ask('What is your email?')#.default('jonkinney@gmail.com')
 # end
 
-dep 'dotfiles', template: 'dotfiles'
+dep 'dotfiles', template: 'dotfiles', email: 'jonkinney@gmail.com' do
+  email.ask('What is your email?')
+end
 dep 'private-dotfiles', template: 'dotfiles'
